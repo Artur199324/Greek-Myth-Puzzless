@@ -82,6 +82,7 @@
 		75B586F12C889E3B00F23B08 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		75B586F52C88A2E000F23B08 /* BalansManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalansManager.swift; sourceTree = "<group>"; };
 		75B587792C8E223E00F23B08 /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
+		75B5877A2C8F669700F23B08 /* Greek-Myth-Puzzles-Powe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Greek-Myth-Puzzles-Powe-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7FF45C64381AD54F035E323A /* Pods-Greek Myth Puzzles PoweTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Greek Myth Puzzles PoweTests.release.xcconfig"; path = "Target Support Files/Pods-Greek Myth Puzzles PoweTests/Pods-Greek Myth Puzzles PoweTests.release.xcconfig"; sourceTree = "<group>"; };
 		8190447B2CABDF96FFA1868B /* Pods-Greek Myth Puzzles Powe-Greek Myth Puzzles PoweUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Greek Myth Puzzles Powe-Greek Myth Puzzles PoweUITests.debug.xcconfig"; path = "Target Support Files/Pods-Greek Myth Puzzles Powe-Greek Myth Puzzles PoweUITests/Pods-Greek Myth Puzzles Powe-Greek Myth Puzzles PoweUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8DE6F1A2EA15ACC8294B2CEF /* Pods-Greek Myth Puzzles Powe-Greek Myth Puzzles PoweUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Greek Myth Puzzles Powe-Greek Myth Puzzles PoweUITests.release.xcconfig"; path = "Target Support Files/Pods-Greek Myth Puzzles Powe-Greek Myth Puzzles PoweUITests/Pods-Greek Myth Puzzles Powe-Greek Myth Puzzles PoweUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +144,7 @@
 		75B586A92C86324D00F23B08 /* Greek Myth Puzzles Powe */ = {
 			isa = PBXGroup;
 			children = (
+				75B5877A2C8F669700F23B08 /* Greek-Myth-Puzzles-Powe-Info.plist */,
 				75B586EC2C8869E200F23B08 /* questions */,
 				75B586E72C884C2E00F23B08 /* save */,
 				75B586DA2C881D7E00F23B08 /* level */,
@@ -225,7 +227,6 @@
 				E0DA953CD30FA16CD819556D /* Pods-Greek Myth Puzzles PoweTests.debug.xcconfig */,
 				7FF45C64381AD54F035E323A /* Pods-Greek Myth Puzzles PoweTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -624,12 +625,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Greek Myth Puzzles Powe/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = "Greek-Myth-Puzzles-Powe-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Greek Myth Puzzles";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -655,12 +656,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Greek Myth Puzzles Powe/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = "Greek-Myth-Puzzles-Powe-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Greek Myth Puzzles";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
