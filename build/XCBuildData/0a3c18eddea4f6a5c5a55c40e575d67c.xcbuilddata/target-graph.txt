@@ -1,0 +1,10 @@
+Target dependency graph (5 targets)
+Target 'Pods-Greek Myth Puzzles PoweTests' in project 'Pods'
+➜ Explicit dependency on target 'Pods-Greek Myth Puzzles Powe' in project 'Pods'
+Target 'Pods-Greek Myth Puzzles Powe-Greek Myth Puzzles PoweUITests' in project 'Pods'
+➜ Explicit dependency on target 'Alamofire' in project 'Pods'
+Target 'Pods-Greek Myth Puzzles Powe' in project 'Pods'
+➜ Explicit dependency on target 'Alamofire' in project 'Pods'
+Target 'Alamofire' in project 'Pods'
+➜ Explicit dependency on target 'Alamofire-Alamofire' in project 'Pods'
+Target 'Alamofire-Alamofire' in project 'Pods' (no dependencies)

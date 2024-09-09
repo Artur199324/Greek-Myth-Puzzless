@@ -1,0 +1,30 @@
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Core/HTTPMethod.swift":
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/HTTPMethod.swiftdeps"
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/HTTPMethod.swiftconstvalues"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/HTTPMethod.o"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/HTTPMethod.dia"
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/HTTPMethod.d"
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Features/MultipartUpload.swift":
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/MultipartUpload.swiftconstvalues"
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/MultipartUpload.d"
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/MultipartUpload.swiftdeps"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/MultipartUpload.o"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/MultipartUpload.dia"
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Features/MultipartFormData.swift":
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/MultipartFormData.swiftconstvalues"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/MultipartFormData.dia"
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/MultipartFormData.swiftdeps"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/MultipartFormData.o"
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/MultipartFormData.d"
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Features/NetworkReachabilityManager.swift":
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/NetworkReachabilityManager.o"
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/NetworkReachabilityManager.swiftconstvalues"
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/NetworkReachabilityManager.swiftdeps"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/NetworkReachabilityManager.dia"
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/NetworkReachabilityManager.d"
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Core/HTTPHeaders.swift":
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/HTTPHeaders.dia"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/HTTPHeaders.o"
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/HTTPHeaders.swiftconstvalues"
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/HTTPHeaders.d"
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/HTTPHeaders.swiftdeps"

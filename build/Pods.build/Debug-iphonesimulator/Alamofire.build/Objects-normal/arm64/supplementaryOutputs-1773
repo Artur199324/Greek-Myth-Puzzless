@@ -1,0 +1,30 @@
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Core/RequestTaskMap.swift":
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestTaskMap.d"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestTaskMap.o"
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestTaskMap.swiftdeps"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestTaskMap.dia"
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestTaskMap.swiftconstvalues"
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Features/RedirectHandler.swift":
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RedirectHandler.d"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RedirectHandler.o"
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RedirectHandler.swiftconstvalues"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RedirectHandler.dia"
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RedirectHandler.swiftdeps"
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Features/RequestCompression.swift":
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestCompression.swiftdeps"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestCompression.dia"
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestCompression.swiftconstvalues"
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestCompression.d"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestCompression.o"
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Core/Request.swift":
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Request.swiftdeps"
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Request.swiftconstvalues"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Request.o"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Request.dia"
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Request.d"
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Features/RequestInterceptor.swift":
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestInterceptor.swiftconstvalues"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestInterceptor.o"
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestInterceptor.d"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestInterceptor.dia"
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/RequestInterceptor.swiftdeps"

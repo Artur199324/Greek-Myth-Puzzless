@@ -1,0 +1,36 @@
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Features/CachedResponseHandler.swift":
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/CachedResponseHandler.swiftconstvalues"
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/CachedResponseHandler.d"
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/CachedResponseHandler.swiftdeps"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/CachedResponseHandler.dia"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/CachedResponseHandler.o"
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Features/AlamofireExtended.swift":
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AlamofireExtended.swiftconstvalues"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AlamofireExtended.dia"
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AlamofireExtended.d"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AlamofireExtended.o"
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AlamofireExtended.swiftdeps"
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Features/AuthenticationInterceptor.swift":
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AuthenticationInterceptor.swiftconstvalues"
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AuthenticationInterceptor.swiftdeps"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AuthenticationInterceptor.dia"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AuthenticationInterceptor.o"
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AuthenticationInterceptor.d"
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Features/Combine.swift":
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Combine.d"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Combine.o"
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Combine.swiftconstvalues"
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Combine.swiftdeps"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Combine.dia"
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Core/AFError.swift":
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AFError.swiftdeps"
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AFError.swiftconstvalues"
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AFError.d"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AFError.o"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/AFError.dia"
+"/Users/artur/Desktop/ios/Greek Myth Puzzles/Pods/Alamofire/Source/Alamofire.swift":
+  dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Alamofire.d"
+  diagnostics: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Alamofire.dia"
+  const-values: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Alamofire.swiftconstvalues"
+  object: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Alamofire.o"
+  swift-dependencies: "/Users/artur/Desktop/ios/Greek Myth Puzzles/build/Pods.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/arm64/Alamofire.swiftdeps"
