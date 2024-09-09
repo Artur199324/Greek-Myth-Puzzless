@@ -1,5 +1,0 @@
- extern const unsigned char Pods_Greek_Myth_Puzzles_PoweTestsVersionString[];
- extern const double Pods_Greek_Myth_Puzzles_PoweTestsVersionNumber;
-
- const unsigned char Pods_Greek_Myth_Puzzles_PoweTestsVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:Pods_Greek_Myth_Puzzles_PoweTests  PROJECT:Pods-1" "\n";
- const double Pods_Greek_Myth_Puzzles_PoweTestsVersionNumber __attribute__ ((used)) = (double)1.;
