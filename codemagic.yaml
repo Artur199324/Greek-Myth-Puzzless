@@ -9,6 +9,8 @@ workflows:
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.greekmythpuzzles
+        certificate: GreekMythPuzzlesCert
+        provisioning_profile: GreekMythPuzzlesCert
       vars:
         BUNDLE_ID: "com.greekmythpuzzles"
         XCODE_WORKSPACE: "Greek Myth Puzzles Powe.xcworkspace"
@@ -17,9 +19,9 @@ workflows:
       xcode: latest
       cocoapods: default
     scripts:
-      - name: Install CocoaPods dependencies
-        script: |
-          pod install
+      # - name: Install CocoaPods dependencies
+      #   script: |
+      #     pod install
       - name: Set up provisioning profiles settings on Xcode project
         script: xcode-project use-profiles
       - name: Increment build number
