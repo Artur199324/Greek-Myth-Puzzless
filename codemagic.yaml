@@ -9,6 +9,8 @@ workflows:
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.greekmythpuzzles
+        certificate: GreekMythPuzzlesCert # Добавьте сюда имя вашего сертификата
+        provisioning_profile: GreekMythPuzzlesCert # Добавьте сюда имя вашего профиля
       vars:
         BUNDLE_ID: "com.greekmythpuzzles"
         XCODE_WORKSPACE: "Greek Myth Puzzles Powe.xcworkspace"
@@ -52,5 +54,3 @@ workflows:
         submit_to_app_store: true
         cancel_previous_submissions: true
         release_type: MANUAL
-        
-        
