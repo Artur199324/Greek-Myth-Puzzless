@@ -1,111 +1,241 @@
-//
-//  ContentView.swift
-//  Olympus Glory Divine Powe
-//
-//  Created by Artur on 02.09.2024.
-//
-
 import SwiftUI
+import WebKit
 
 struct ContentView: View {
+    @EnvironmentObject var dataModel: DataModel
+    @State private var isWebViewHidden = true // Изначально скрываем WebView
+    @State private var showButtons = false    // Изначально скрываем кнопки
+    @State private var isLoading = true       // Изначально показываем прогресс-бар
+    @State private var progress: Double = 0.0 // Прогресс загрузки
+    @State private var webView: WKWebView? = nil
     @State private var showAlert = false
     @State private var showFullScreen = false
-    @State private var showShope = false
+    @State private var showShop = false
     @State private var lastButtonTapDate: Date? = UserDefaults.standard.object(forKey: "lastButtonTapDate") as? Date
     @State private var isStartGame = false
     @State private var savedValue: Int = {
         let key = "myIntKey"
+        let initialValue = 0
         if UserDefaults.standard.object(forKey: key) == nil {
             UserDefaults.standard.set(initialValue, forKey: key)
         }
         return UserDefaults.standard.integer(forKey: key)
     }()
+
     var body: some View {
+        ZStack {
+            VStack {
+                if showButtons {
+                    buttonContent // Вью с кнопками
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(
+                Image("splash")
+                    .ignoresSafeArea()
+            )
+            .fullScreenCover(isPresented: $isStartGame) {
+                StartGame()
+            }
+            .fullScreenCover(isPresented: $showFullScreen) {
+                DailyBonusView()
+            }
+            .fullScreenCover(isPresented: $showShop) {
+                ShopView()
+            }
+
+            // Прогресс-бар по центру
+            if isLoading {
+                ZStack {
+                    Color.black.opacity(0.3)
+                        .ignoresSafeArea()
+                    ProgressView("Loading...")
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .padding()
+                        .background(Color.white.opacity(0.8))
+                        .cornerRadius(10)
+                }
+            }
+
+            // WebView размещаем поверх всего остального
+            if !isWebViewHidden {
+                if let url = URL(string: dataModel.add) {
+                    WebView(
+                        url: url,
+                        onPageStarted: { url in
+                            print("Page started loading: \(url?.absoluteString ?? "Unknown URL")")
+                        },
+                        onPageFinished: { url in
+                            print("Page finished loading: \(url?.absoluteString ?? "Unknown URL")")
+
+                            // Проверяем, содержит ли URL строку "celestialcirdscuit"
+                            if let urlString = url?.absoluteString, urlString.contains("celestialcirdscuit") {
+                                showButtons = true
+                                isWebViewHidden = true
+                            } else {
+                                showButtons = false
+                                isWebViewHidden = false
+                            }
+
+                            isLoading = false
+                        },
+                        onProgressChanged: { progress in
+                            self.progress = progress
+                            if progress == 1.0 {
+                                isLoading = false
+                            }
+                        },
+                        webView: $webView
+                    )
+                    .ignoresSafeArea()
+                    .gesture(
+                        DragGesture()
+                            .onEnded { value in
+                                if value.translation.width > 100 && (webView?.canGoBack ?? false) {
+                                    webView?.goBack()
+                                }
+                            }
+                    )
+                } else {
+                    Text("Некорректный URL")
+                        .foregroundColor(.red)
+                }
+            }
+        }
+        .onAppear {
+            handleNewUser()
+        }
+        .onReceive(dataModel.$newUser) { _ in
+            handleNewUser()
+        }
+        .onReceive(dataModel.$add) { newValue in
+            print("dataModel.add изменился: \(newValue)")
+            if !newValue.isEmpty {
+                if let url = URL(string: newValue) {
+                    if let webView = webView {
+                        webView.load(URLRequest(url: url))
+                    } else {
+                        webView = WKWebView()
+                        webView?.load(URLRequest(url: url))
+                    }
+                    isWebViewHidden = false
+                    isLoading = true
+                } else {
+                    print("Некорректный URL: \(newValue)")
+                }
+            } else {
+                isWebViewHidden = true
+                isLoading = true
+            }
+        }
+    }
+
+    private func handleNewUser() {
+        if let newUser = dataModel.newUser {
+            if newUser {
+                // Если newUser == true, начинаем загрузку WebView
+                isWebViewHidden = false
+                isLoading = true
+                showButtons = false
+
+                // Инициируем загрузку, если dataModel.add уже установлен
+                if !dataModel.add.isEmpty {
+                    if let url = URL(string: dataModel.add) {
+                        if let webView = webView {
+                            webView.load(URLRequest(url: url))
+                        } else {
+                            webView = WKWebView()
+                            webView?.load(URLRequest(url: url))
+                        }
+                    }
+                }
+            } else {
+                // Если newUser == false, сразу показываем кнопки
+                isWebViewHidden = true
+                isLoading = false
+                showButtons = true
+            }
+        } else {
+            // Если newUser == nil, показываем прогресс-бар
+            isWebViewHidden = true
+            isLoading = true
+            showButtons = false
+        }
+    }
+
+    // Содержимое с кнопками
+    private var buttonContent: some View {
         VStack {
-            HStack{
-                ZStack{
+            HStack {
+                ZStack {
                     Image("balance")
                     Text("\(savedValue)")
                         .foregroundColor(.white)
-                        .padding(.leading,15)
-                }.padding(.leading,30)
+                        .padding(.leading, 15)
+                }
+                .padding(.leading, 30)
+
                 Spacer()
+
                 Button {
-                    showShope.toggle()
+                    showShop.toggle()
                 } label: {
                     Image("shop")
-                }.alert(isPresented: $showAlert) {
-                    Alert(title: Text("Notification"), message: Text("You can only access this once per day."), dismissButton: .default(Text("OK")))
-                }.padding(.trailing,40)
-                
-//                Button(action: {
-//                    
-//                }, label: {
-//                    Image("sound")
-//                }).padding(.trailing,20)
-                
+                }
+                .padding(.trailing, 40)
             }
             Spacer()
-            HStack{
+            HStack {
                 Spacer()
                 Button {
                     checkButtonTap()
                 } label: {
                     Image("Group 9")
-                }.padding(.trailing,30)
-                    .padding(.bottom,50)
+                }
+                .padding(.trailing, 30)
+                .padding(.bottom, 50)
             }
-            
+
             Button {
                 isStartGame.toggle()
             } label: {
                 Image("Group 1")
-            }.padding(.bottom,40)
-            
-            
-            
+            }
+            .padding(.bottom, 40)
         }
-        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,maxHeight: .infinity)
-        .background(Image("splash")
-            .ignoresSafeArea()
-        )
-        .fullScreenCover(isPresented: $isStartGame, content: {
-            StartGame()
-        })
-        .fullScreenCover(isPresented: $showFullScreen, content: {
-            DailyBonusView()
-        })
-        
-        .fullScreenCover(isPresented: $showShope, content: {
-            ShopView()
-        })
     }
-    
-    private func checkButtonTap() {
-          let currentDate = Date()
-          let calendar = Calendar.current
 
-          if let lastTapDate = lastButtonTapDate {
-              // Check if more than 24 hours have passed since the last tap
-              if let difference = calendar.dateComponents([.day], from: lastTapDate, to: currentDate).day, difference >= 1 {
-                  proceedToFullScreen()
-              } else {
-                  // Less than a day has passed
-                  showAlert.toggle()
-              }
-          } else {
-              // First time tap
-              proceedToFullScreen()
-          }
-      }
-      
-      private func proceedToFullScreen() {
-          lastButtonTapDate = Date()
-          UserDefaults.standard.set(lastButtonTapDate, forKey: "lastButtonTapDate")
-          showFullScreen.toggle()
-      }
+    private func checkButtonTap() {
+        let currentDate = Date()
+        let calendar = Calendar.current
+
+        if let lastTapDate = lastButtonTapDate {
+            if let difference = calendar.dateComponents([.day], from: lastTapDate, to: currentDate).day, difference >= 1 {
+                proceedToFullScreen()
+            } else {
+                showAlert.toggle()
+            }
+        } else {
+            proceedToFullScreen()
+        }
+    }
+
+    private func proceedToFullScreen() {
+        lastButtonTapDate = Date()
+        UserDefaults.standard.set(lastButtonTapDate, forKey: "lastButtonTapDate")
+        showFullScreen.toggle()
+    }
+}
+
+// Кастомный модификатор для скрытия элементов
+extension View {
+    func isHidden(_ hidden: Bool) -> some View {
+        self.opacity(hidden ? 0 : 1)
+            .disabled(hidden)
+    }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(DataModel())
 }

@@ -1,0 +1,18 @@
+excluded:
+  # Исключаем классы, используемые в Storyboard
+  - '^AppDelegate$'
+  - '^SceneDelegate$'
+  - '^LoginViewController$'
+  - '^MainViewController$'
+  - '^SettingsViewController$'
+
+  # Исключаем протоколы и делегаты
+  - '^.*Delegate$'
+  - '^.*DataSource$'
+
+  # Исключаем методы, вызываемые через селекторы
+  - 'application(_:didFinishLaunchingWithOptions:)'
+  - 'buttonTapped:'
+
+  # Исключаем классы, используемые в рефлексии
+  - 'DynamicClass'

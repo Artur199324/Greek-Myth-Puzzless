@@ -1,3 +1,31 @@
-PODFILE CHECKSUM: c256f76831d3f758b16a23ba90a734659f64cb7a
+PODS:
+  - AppsFlyerFramework (6.15.2):
+    - AppsFlyerFramework/Main (= 6.15.2)
+  - AppsFlyerFramework/Main (6.15.2)
+  - OneSignalXCFramework (3.12.9):
+    - OneSignalXCFramework/OneSignalCore (= 3.12.9)
+    - OneSignalXCFramework/OneSignalExtension (= 3.12.9)
+    - OneSignalXCFramework/OneSignalOutcomes (= 3.12.9)
+  - OneSignalXCFramework/OneSignalCore (3.12.9)
+  - OneSignalXCFramework/OneSignalExtension (3.12.9):
+    - OneSignalXCFramework/OneSignalCore
+    - OneSignalXCFramework/OneSignalOutcomes
+  - OneSignalXCFramework/OneSignalOutcomes (3.12.9):
+    - OneSignalXCFramework/OneSignalCore
+
+DEPENDENCIES:
+  - AppsFlyerFramework
+  - OneSignalXCFramework (< 4.0, >= 3.0.0)
+
+SPEC REPOS:
+  trunk:
+    - AppsFlyerFramework
+    - OneSignalXCFramework
+
+SPEC CHECKSUMS:
+  AppsFlyerFramework: 3c6c50b7b3f0f37f648a5b23114940e0766e65e8
+  OneSignalXCFramework: 3c3ef25ecca5eae1bf80a3272c49fd1dbab96b35
+
+PODFILE CHECKSUM: 39f512da9f96a219c1603eca3a8967719ac832cd
 
 COCOAPODS: 1.15.2
