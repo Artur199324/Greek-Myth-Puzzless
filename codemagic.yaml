@@ -8,7 +8,9 @@ workflows:
     environment:
       ios_signing:
         distribution_type: app_store
-        bundle_identifier: com.greekmythpuzzles
+        provisioning_profiles:
+          - bundle_identifier: "com.greekmythpuzzles"
+          - bundle_identifier: "com.greekmythpuzzles.OneSignalNotificationServiceExtension"
       vars:
         BUNDLE_ID: "com.greekmythpuzzles"
         XCODE_WORKSPACE: "Greek Myth Puzzles Powe.xcworkspace"
