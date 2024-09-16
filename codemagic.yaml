@@ -31,16 +31,14 @@ workflows:
           # Simple example of obfuscating Swift code
           # Replace occurrences of function names or variables with obfuscated names
           find . -name "*.swift" -print0 | xargs -0 sed -i '' -e 's/\b(\w+)\b/$1_obf/g'
-      - name: Build project
+      - name: Build ipa for distribution
         script: |
-          xcodebuild \
-            -workspace "$XCODE_WORKSPACE" \
-            -scheme "$XCODE_SCHEME" \
-            -configuration Release \
-            -sdk iphoneos \
-            clean build \
-            -archivePath "$CM_BUILD_DIR/GreekMythPuzzlesPowe.xcarchive" \
-            archive
+          xcode-project build-ipa \
+            --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
+            --scheme "$XCODE_SCHEME" \
+            --configuration Release \
+            --export-path "$CM_BUILD_DIR/build" \
+            --export-options-plist "$CM_BUILD_DIR/exportOptions.plist"
       - name: Create exportOptions.plist
         script: |
           echo '<?xml version="1.0" encoding="UTF-8"?>' > "$CM_BUILD_DIR/exportOptions.plist"
@@ -53,12 +51,6 @@ workflows:
           echo '    <string>YOUR_TEAM_ID</string>' >> "$CM_BUILD_DIR/exportOptions.plist"
           echo '</dict>' >> "$CM_BUILD_DIR/exportOptions.plist"
           echo '</plist>' >> "$CM_BUILD_DIR/exportOptions.plist"
-      - name: Export IPA
-        script: |
-          xcodebuild -exportArchive \
-            -archivePath "$CM_BUILD_DIR/GreekMythPuzzlesPowe.xcarchive" \
-            -exportOptionsPlist "$CM_BUILD_DIR/exportOptions.plist" \
-            -exportPath "$CM_BUILD_DIR/build"
     artifacts:
       - build/*.ipa
       - /tmp/xcodebuild_logs/*.log
