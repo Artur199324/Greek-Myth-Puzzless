@@ -10,7 +10,6 @@ workflows:
         distribution_type: app_store
         bundle_identifier: com.greekmythpuzzles
       vars:
-        BUNDLE_ID: "com.greekmythpuzzles"
         XCODE_WORKSPACE: "Greek Myth Puzzles Powe.xcworkspace"
         XCODE_SCHEME: "Greek Myth Puzzles Powe"
         APP_STORE_APPLE_ID: 6670722073
@@ -27,6 +26,12 @@ workflows:
           cd $CM_BUILD_DIR
           LATEST_BUILD_NUMBER=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID")
           agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
+      - name: Install Mint
+        script: |
+          brew install mint
+      - name: Install SwiftShield via Mint
+        script: |
+          mint install rockbruno/SwiftShield
       - name: Build the project
         script: |
           xcodebuild \
@@ -37,7 +42,7 @@ workflows:
             clean archive
       - name: Run SwiftShield
         script: |
-          "$CM_BUILD_DIR/Pods/SwiftShield/swiftshield" \
+          mint run swiftshield \
             --project "$XCODE_WORKSPACE" \
             --scheme "$XCODE_SCHEME" \
             --archive "$CM_BUILD_DIR/build/$XCODE_SCHEME.xcarchive" \
