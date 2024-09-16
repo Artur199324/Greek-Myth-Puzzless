@@ -12,7 +12,6 @@ workflows:
       vars:
         XCODE_WORKSPACE: "Greek Myth Puzzles Powe.xcworkspace"
         XCODE_SCHEME: "Greek Myth Puzzles Powe"
-        EXTENSION_SCHEME: "OneSignalNotificationServiceExtension"
         APP_STORE_APPLE_ID: 6670722073
       xcode: latest
       cocoapods: default
@@ -41,12 +40,20 @@ workflows:
             -configuration Debug \
             -sdk iphonesimulator \
             clean build
+      - name: Restore missing files after SwiftShield
+        script: |
+          # Добавьте проверку и восстановление недостающих файлов здесь
+          FILE_PATH="$CM_BUILD_DIR/DerivedData/Build/Intermediates.noindex/Greek Myth Puzzles Powe.build/Debug-iphonesimulator/Greek Myth Puzzles Powe.build/Objects-normal/arm64/Greek Myth Puzzles Powe.SwiftFileList"
+          if [ ! -f "$FILE_PATH" ]; then
+            echo "Restoring missing SwiftFileList"
+            touch "$FILE_PATH" # Создаем пустой файл для предотвращения ошибок
+          fi
       - name: Run SwiftShield
         script: |
           mint run swiftshield obfuscate \
             --project-file "$XCODE_WORKSPACE" \
             --scheme "$XCODE_SCHEME" \
-            --ignore-targets "OneSignalNotificationServiceExtension" \
+            --ignore-paths "$CM_BUILD_DIR/DerivedData/Build/Intermediates.noindex/Greek Myth Puzzles Powe.build/Debug-iphonesimulator/Greek Myth Puzzles Powe.build/Objects-normal/arm64" \
             --verbose
       - name: Export obfuscated IPA
         script: |
