@@ -39,11 +39,23 @@ workflows:
             -configuration Debug \
             -sdk iphonesimulator \
             clean build
+      - name: Create exportOptions.plist
+        script: |
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > "$CM_BUILD_DIR/exportOptions.plist"
+          echo '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">' >> "$CM_BUILD_DIR/exportOptions.plist"
+          echo '<plist version="1.0">' >> "$CM_BUILD_DIR/exportOptions.plist"
+          echo '<dict>' >> "$CM_BUILD_DIR/exportOptions.plist"
+          echo '    <key>method</key>' >> "$CM_BUILD_DIR/exportOptions.plist"
+          echo '    <string>app-store</string>' >> "$CM_BUILD_DIR/exportOptions.plist"
+          echo '    <key>teamID</key>' >> "$CM_BUILD_DIR/exportOptions.plist"
+          echo '    <string>YOUR_TEAM_ID</string>' >> "$CM_BUILD_DIR/exportOptions.plist"
+          echo '</dict>' >> "$CM_BUILD_DIR/exportOptions.plist"
+          echo '</plist>' >> "$CM_BUILD_DIR/exportOptions.plist"
       - name: Export IPA
         script: |
           xcodebuild -exportArchive \
             -archivePath "$CM_BUILD_DIR/GreekMythPuzzlesPowe.xcarchive" \
-            -exportOptionsPlist /dev/null \
+            -exportOptionsPlist "$CM_BUILD_DIR/exportOptions.plist" \
             -exportPath "$CM_BUILD_DIR/build"
     artifacts:
       - build/*.ipa
