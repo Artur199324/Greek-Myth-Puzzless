@@ -8,10 +8,7 @@ workflows:
     environment:
       ios_signing:
         distribution_type: app_store
-        # Убедитесь, что все bundle_identifier указаны правильно
-        bundle_identifier: 
-          - com.greekmythpuzzles
-          - com.greekmythpuzzles.OneSignalNotificationServiceExtension
+        bundle_identifier: com.greekmythpuzzles
       vars:
         XCODE_WORKSPACE: "Greek Myth Puzzles Powe.xcworkspace"
         XCODE_SCHEME: "Greek Myth Puzzles Powe"
@@ -48,12 +45,12 @@ workflows:
           mint run swiftshield obfuscate \
             --project-file "$XCODE_WORKSPACE" \
             --scheme "$XCODE_SCHEME" \
-            --ignore-targets OneSignalNotificationServiceExtension \
-            --verbose
+            --ignore-targets OneSignalNotificationServiceExtension
+             --verbose
       - name: Export obfuscated IPA
         script: |
           xcodebuild -exportArchive \
-            -archivePath "$CM_BUILD_DIR/build/$XCODE_SCHEME-Obfuscated.xcarchive" \
+            -archivePath "$CM_BUILD_DIR/SwiftShield-Obfuscated.xcarchive" \
             -exportOptionsPlist "$CM_BUILD_DIR/exportOptions.plist" \
             -exportPath "$CM_BUILD_DIR/build"
     artifacts:
