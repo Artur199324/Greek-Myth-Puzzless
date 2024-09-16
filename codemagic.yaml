@@ -8,7 +8,10 @@ workflows:
     environment:
       ios_signing:
         distribution_type: app_store
-        bundle_identifier:
+        provisioning_profile_upload_method: app_store_connect
+        team_id: YOUR_TEAM_ID  # Замените на ваш реальный Team ID
+        bundle_identifier: com.greekmythpuzzles
+        app_identifier:
           - com.greekmythpuzzles
           - com.greekmythpuzzles.OneSignalNotificationServiceExtension
       vars:
