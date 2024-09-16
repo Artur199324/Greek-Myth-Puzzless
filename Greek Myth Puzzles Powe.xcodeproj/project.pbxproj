@@ -18,6 +18,7 @@
 		756655A32C92CDF0006F0B23 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756655A22C92CDF0006F0B23 /* WebView.swift */; };
 		756655B62C92E9B3006F0B23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756655B52C92E9B3006F0B23 /* AppDelegate.swift */; };
 		759F73CC2C9883A600F669CE /* AppsFlyerLib in Frameworks */ = {isa = PBXBuildFile; productRef = 759F73CB2C9883A600F669CE /* AppsFlyerLib */; };
+		759F73D22C9891C900F669CE /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 759F73D12C9891C900F669CE /* exportOptions.plist */; };
 		75B586AB2C86324D00F23B08 /* Olympus_Glory_Divine_PoweApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B586AA2C86324D00F23B08 /* Olympus_Glory_Divine_PoweApp.swift */; };
 		75B586AD2C86324D00F23B08 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B586AC2C86324D00F23B08 /* ContentView.swift */; };
 		75B586AF2C86325000F23B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75B586AE2C86325000F23B08 /* Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		756655A22C92CDF0006F0B23 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		756655B42C92E85B006F0B23 /* Greek Myth Puzzles PoweRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Greek Myth Puzzles PoweRelease.entitlements"; sourceTree = "<group>"; };
 		756655B52C92E9B3006F0B23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		759F73D12C9891C900F669CE /* exportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = exportOptions.plist; sourceTree = "<group>"; };
 		75B586A72C86324D00F23B08 /* Greek Myth Puzzles Powe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Greek Myth Puzzles Powe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B586AA2C86324D00F23B08 /* Olympus_Glory_Divine_PoweApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Olympus_Glory_Divine_PoweApp.swift; sourceTree = "<group>"; };
 		75B586AC2C86324D00F23B08 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		75B5869E2C86324D00F23B08 = {
 			isa = PBXGroup;
 			children = (
+				759F73D12C9891C900F669CE /* exportOptions.plist */,
 				75E10F5F2C981C8100CB1673 /* codemagic.yaml  */,
 				751656442C9767A000E0EF4C /* swiftshield.yml */,
 				75B586BA2C86325000F23B08 /* Greek Myth Puzzles PoweTests */,
@@ -399,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75B586B22C86325000F23B08 /* Preview Assets.xcassets in Resources */,
+				759F73D22C9891C900F669CE /* exportOptions.plist in Resources */,
 				751656452C9767A000E0EF4C /* swiftshield.yml in Resources */,
 				75E10F602C981C8100CB1673 /* codemagic.yaml  in Resources */,
 				75B586AF2C86325000F23B08 /* Assets.xcassets in Resources */,
