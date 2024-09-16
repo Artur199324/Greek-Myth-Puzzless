@@ -8,16 +8,9 @@ workflows:
     environment:
       ios_signing:
         distribution_type: app_store
-        bundle_identifier: com.greekmythpuzzles  # Основной идентификатор приложения
-        automatic_code_signing:
-          provider: app-store-connect
-          team_id: YOUR_TEAM_ID  # Замените на ваш реальный Team ID
-          app_store_connect_api_key:
-            auth: integration
-          signing_entities:
-            - target: "OneSignalNotificationServiceExtension"
-              bundle_identifier: "com.greekmythpuzzles.OneSignalNotificationServiceExtension"
+        bundle_identifier: com.greekmythpuzzles
       vars:
+        BUNDLE_ID: "com.greekmythpuzzles"
         XCODE_WORKSPACE: "Greek Myth Puzzles Powe.xcworkspace"
         XCODE_SCHEME: "Greek Myth Puzzles Powe"
         APP_STORE_APPLE_ID: 6670722073
@@ -27,11 +20,16 @@ workflows:
       - name: Install CocoaPods dependencies
         script: |
           pod install || echo "No Podfile found, skipping pod install."
+      - name: Set up provisioning profiles settings on Xcode project
+        script: xcode-project use-profiles
       - name: Increment build number
         script: |
           cd $CM_BUILD_DIR
           LATEST_BUILD_NUMBER=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID")
           agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
+      - name: Install SwiftShield
+        script: |
+          brew install yawift/swiftshield/swiftshield
       - name: Build the project
         script: |
           xcodebuild \
@@ -42,7 +40,7 @@ workflows:
             clean archive
       - name: Run SwiftShield
         script: |
-          ./Pods/SwiftShield/swiftshield \
+          swiftshield \
             --project "$XCODE_WORKSPACE" \
             --scheme "$XCODE_SCHEME" \
             --archive "$CM_BUILD_DIR/build/$XCODE_SCHEME.xcarchive" \
