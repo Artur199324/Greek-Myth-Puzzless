@@ -42,24 +42,27 @@ workflows:
             clean build
       - name: Restore missing files after SwiftShield
         script: |
-          # Путь к недостающему файлу
+          # Путь к недостающему файлу SwiftFileList
           FILE_PATH="$CM_BUILD_DIR/DerivedData/Build/Intermediates.noindex/Greek Myth Puzzles Powe.build/Debug-iphonesimulator/Greek Myth Puzzles Powe.build/Objects-normal/arm64/Greek Myth Puzzles Powe.SwiftFileList"
           
-          # Проверяем, существует ли файл
+          # Проверка и восстановление недостающих файлов
           if [ ! -f "$FILE_PATH" ]; then
             echo "Restoring missing SwiftFileList"
             
             # Создаем все недостающие директории перед созданием файла
             mkdir -p "$(dirname "$FILE_PATH")"
             
-            # Создаем пустой файл
+            # Создаем пустой файл, чтобы предотвратить ошибки
             touch "$FILE_PATH"
+          else
+            echo "SwiftFileList exists, no need to restore."
           fi
       - name: Run SwiftShield
         script: |
           mint run swiftshield obfuscate \
             --project-file "$XCODE_WORKSPACE" \
             --scheme "$XCODE_SCHEME" \
+            --ignore-targets "OneSignalNotificationServiceExtension" \
             --verbose
       - name: Export obfuscated IPA
         script: |
