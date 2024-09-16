@@ -29,18 +29,25 @@ workflows:
           agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
       - name: Install Mint
         script: |
-          brew install mint
+          brew install mint || brew upgrade mint
       - name: Install SwiftShield via Mint
         script: |
-          mint install rockbruno/SwiftShield
+          mint install rockbruno/SwiftShield || mint upgrade rockbruno/SwiftShield
+          mint list
       - name: Build project before SwiftShield
         script: |
+          set -o pipefail && \
           xcodebuild \
             -workspace "$XCODE_WORKSPACE" \
             -scheme "$XCODE_SCHEME" \
-            -configuration Debug \
+            -configuration Release \ # Изменено на Release
             -sdk iphonesimulator \
-            clean build
+            clean build | tee build.log | xcpretty
+          # Проверка на успешность сборки
+          if [ $? -ne 0 ]; then
+            echo "Build failed, check build.log for details."
+            exit 1
+          fi
       - name: Run SwiftShield
         script: |
           mint run swiftshield obfuscate \
@@ -73,4 +80,4 @@ workflows:
           - GreekMythPuzzlesCert
         submit_to_app_store: true
         cancel_previous_submissions: true
-        release_type: MANUAL
+        release_type: AUTOMATIC # Изменено на автоматический выпуск
