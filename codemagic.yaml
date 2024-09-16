@@ -8,14 +8,15 @@ workflows:
     environment:
       ios_signing:
         distribution_type: app_store
-        provisioning_profile_upload_method: app_store_connect
-        team_id: YOUR_TEAM_ID  # Замените на ваш реальный Team ID
-        bundle_identifier: com.greekmythpuzzles
-        app_identifier:
-          - com.greekmythpuzzles
-          - com.greekmythpuzzles.OneSignalNotificationServiceExtension
+        automatic_code_signing:
+          team_id: YOUR_TEAM_ID  # Замените на ваш реальный Team ID
+          bundle_identifier:
+            - com.greekmythpuzzles
+            - com.greekmythpuzzles.OneSignalNotificationServiceExtension
+          certificate_kind: "distribution"
+          app_store_connect_api_key:
+            auth: integration
       vars:
-        BUNDLE_ID: "com.greekmythpuzzles"
         XCODE_WORKSPACE: "Greek Myth Puzzles Powe.xcworkspace"
         XCODE_SCHEME: "Greek Myth Puzzles Powe"
         APP_STORE_APPLE_ID: 6670722073
@@ -25,8 +26,6 @@ workflows:
       - name: Install CocoaPods dependencies
         script: |
           pod install || echo "No Podfile found, skipping pod install."
-      - name: Set up provisioning profiles settings on Xcode project
-        script: xcode-project use-profiles
       - name: Increment build number
         script: |
           cd $CM_BUILD_DIR
