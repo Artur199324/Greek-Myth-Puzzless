@@ -64,7 +64,7 @@ workflows:
           mint run swiftshield obfuscate \
             --project-file "$XCODE_WORKSPACE" \
             --scheme "$XCODE_SCHEME" \
-            --ignore-paths "DerivedData/Build/Intermediates.noindex/Greek Myth Puzzles Powe.build/Debug-iphonesimulator/Greek Myth Puzzles Powe.build/Objects-normal" \
+            --ignore-names "SwiftFileList" \ # Игнорирование файлов SwiftFileList
             --verbose
       - name: Export obfuscated IPA
         script: |
