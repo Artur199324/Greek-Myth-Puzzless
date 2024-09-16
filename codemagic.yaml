@@ -60,7 +60,6 @@ workflows:
           mint run swiftshield obfuscate \
             --project-file "$XCODE_WORKSPACE" \
             --scheme "$XCODE_SCHEME" \
-            --ignore-targets "OneSignalNotificationServiceExtension" \
             --verbose
       - name: Export obfuscated IPA
         script: |
