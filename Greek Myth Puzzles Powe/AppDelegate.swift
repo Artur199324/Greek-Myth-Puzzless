@@ -202,6 +202,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, AppsFlyerLibDelegate, DeepLi
 
     func onConversionDataFail(_ error: Error) {
         print("Ошибка при получении данных конверсии: \(error.localizedDescription)")
+        addData()
     }
 
     // MARK: - AppsFlyerDeepLinkDelegate Methods
@@ -244,6 +245,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, AppsFlyerLibDelegate, DeepLi
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Не удалось зарегистрироваться для удаленных уведомлений: \(error.localizedDescription)")
+        addData()
     }
 
     // Функция для загрузки значений Remote Config
@@ -252,14 +254,26 @@ class AppDelegate: NSObject, UIApplicationDelegate, AppsFlyerLibDelegate, DeepLi
         remoteConfig.fetchAndActivate { status, error in
             if let error = error {
                 print("Ошибка при получении Remote Config: \(error.localizedDescription)")
+                // Если есть ошибка, устанавливаем newUser в false
+                self.dataModel.newUser = false
                 return
             }
 
-            self.checkAdv = remoteConfig.configValue(forKey: "CheckAdv").stringValue
-            self.newUser = remoteConfig.configValue(forKey: "NewwUsser").boolValue
+            // Получаем значения из Remote Config
+            let checkAdvConfigValue = remoteConfig.configValue(forKey: "CheckAdv")
+            let newUserConfigValue = remoteConfig.configValue(forKey: "NewwUsser")
 
-        
-            self.dataModel.newUser = self.newUser
+            // Проверяем, найдены ли ключи
+            if checkAdvConfigValue.source == .static || newUserConfigValue.source == .static {
+                // Ключи не найдены или значения по умолчанию
+                print("Ключи не найдены в Remote Config")
+                self.dataModel.newUser = false
+            } else {
+                // Ключи найдены, присваиваем значения
+                self.checkAdv = checkAdvConfigValue.stringValue
+                self.newUser = newUserConfigValue.boolValue
+                self.dataModel.newUser = self.newUser
+            }
         }
     }
     

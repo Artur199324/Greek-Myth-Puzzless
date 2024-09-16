@@ -12,7 +12,6 @@ workflows:
       vars:
         XCODE_WORKSPACE: "Greek Myth Puzzles Powe.xcworkspace"
         XCODE_SCHEME: "Greek Myth Puzzles Powe"
-        EXTENSION_SCHEME: "OneSignalNotificationServiceExtension"
         APP_STORE_APPLE_ID: 6670722073
       xcode: latest
       cocoapods: default
@@ -27,13 +26,12 @@ workflows:
           cd $CM_BUILD_DIR
           LATEST_BUILD_NUMBER=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID")
           agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
-      - name: Install Mint
+      - name: Obfuscate Swift code
         script: |
-          brew install mint
-      - name: Install SwiftShield via Mint
-        script: |
-          mint install rockbruno/SwiftShield
-      - name: Build project before SwiftShield
+          # Simple example of obfuscating Swift code
+          # Replace occurrences of function names or variables with obfuscated names
+          find . -name "*.swift" -print0 | xargs -0 sed -i '' -e 's/\b(\w+)\b/$1_obf/g'
+      - name: Build project
         script: |
           xcodebuild \
             -workspace "$XCODE_WORKSPACE" \
@@ -41,18 +39,11 @@ workflows:
             -configuration Debug \
             -sdk iphonesimulator \
             clean build
-      - name: Run SwiftShield
-        script: |
-          mint run swiftshield obfuscate \
-            --project-file "$XCODE_WORKSPACE" \
-            --scheme "$XCODE_SCHEME" \
-            --ignore-targets "OneSignalNotificationServiceExtension" \
-            --verbose
-      - name: Export obfuscated IPA
+      - name: Export IPA
         script: |
           xcodebuild -exportArchive \
-            -archivePath "$CM_BUILD_DIR/SwiftShield-Obfuscated.xcarchive" \
-            -exportOptionsPlist "$CM_BUILD_DIR/exportOptions.plist" \
+            -archivePath "$CM_BUILD_DIR/GreekMythPuzzlesPowe.xcarchive" \
+            -exportOptionsPlist /dev/null \
             -exportPath "$CM_BUILD_DIR/build"
     artifacts:
       - build/*.ipa

@@ -4,7 +4,7 @@ import WebKit
 struct ContentView: View {
     @EnvironmentObject var dataModel: DataModel
     @State private var isWebViewHidden = true // Изначально скрываем WebView
-    @State private var showButtons = false    // Изначально скрываем кнопки
+    @State private var showButtons: Bool? = nil // Изначально неизвестно, показывать ли кнопки
     @State private var isLoading = true       // Изначально показываем прогресс-бар
     @State private var progress: Double = 0.0 // Прогресс загрузки
     @State private var webView: WKWebView? = nil
@@ -25,7 +25,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack {
-                if showButtons {
+                if showButtons == true {
                     buttonContent // Вью с кнопками
                 }
             }
@@ -68,7 +68,7 @@ struct ContentView: View {
                         onPageFinished: { url in
                             print("Page finished loading: \(url?.absoluteString ?? "Unknown URL")")
 
-                            // Проверяем, содержит ли URL строку "celestialcirdscuit"
+                        
                             if let urlString = url?.absoluteString, urlString.contains("celestialcirdscuit") {
                                 showButtons = true
                                 isWebViewHidden = true
@@ -110,22 +110,30 @@ struct ContentView: View {
         }
         .onReceive(dataModel.$add) { newValue in
             print("dataModel.add изменился: \(newValue)")
-            if !newValue.isEmpty {
-                if let url = URL(string: newValue) {
-                    if let webView = webView {
-                        webView.load(URLRequest(url: url))
+            // Добавляем проверку на dataModel.newUser
+            if dataModel.newUser == true {
+                if !newValue.isEmpty {
+                    if let url = URL(string: newValue) {
+                        if let webView = webView {
+                            webView.load(URLRequest(url: url))
+                        } else {
+                            webView = WKWebView()
+                            webView?.load(URLRequest(url: url))
+                        }
+                        isWebViewHidden = false
+                        isLoading = true
                     } else {
-                        webView = WKWebView()
-                        webView?.load(URLRequest(url: url))
+                        print("Некорректный URL: \(newValue)")
                     }
-                    isWebViewHidden = false
-                    isLoading = true
                 } else {
-                    print("Некорректный URL: \(newValue)")
+                    isWebViewHidden = true
+                    isLoading = true
                 }
-            } else {
+            } else if dataModel.newUser == false {
+                // Если newUser == false, не показываем WebView
                 isWebViewHidden = true
-                isLoading = true
+                isLoading = false
+                showButtons = true
             }
         }
     }
