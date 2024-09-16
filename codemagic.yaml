@@ -8,15 +8,13 @@ workflows:
     environment:
       ios_signing:
         distribution_type: app_store
-        # Указываем основной идентификатор пакета
+        # Включаем основной bundle_identifier и соответствующий ему provisioning profile
         bundle_identifier: com.greekmythpuzzles
-        # Включаем расширение в списке идентификаторов пакетов
-        additional_bundle_ids:
-          - com.greekmythpuzzles.OneSignalNotificationServiceExtension
+        provisioning_profile: "Provisioning Profile Name for Main App"
       vars:
         XCODE_WORKSPACE: "Greek Myth Puzzles Powe.xcworkspace"
         XCODE_SCHEME: "Greek Myth Puzzles Powe"
-        EXTENSION_SCHEME: "OneSignalNotificationServiceExtension" 
+        EXTENSION_SCHEME: "OneSignalNotificationServiceExtension"
         APP_STORE_APPLE_ID: 6670722073
       xcode: latest
       cocoapods: default
