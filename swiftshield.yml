@@ -16,3 +16,7 @@ excluded:
 
   # Исключаем классы, используемые в рефлексии
   - 'DynamicClass'
+
+  # Исключаем NotificationService
+  - '^NotificationService$'
+  - '^OneSignalNotificationServiceExtension$'
