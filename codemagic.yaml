@@ -14,6 +14,7 @@ workflows:
         XCODE_SCHEME: "Greek Myth Puzzles Powe"
         EXTENSION_SCHEME: "OneSignalNotificationServiceExtension"
         APP_STORE_APPLE_ID: 6670722073
+        BUILD_DIR: "/tmp/build"
       xcode: latest
       cocoapods: default
     scripts:
@@ -35,17 +36,13 @@ workflows:
           mint install rockbruno/SwiftShield
       - name: Build project before SwiftShield
         script: |
-          set -o pipefail && \
           xcodebuild \
             -workspace "$XCODE_WORKSPACE" \
             -scheme "$XCODE_SCHEME" \
             -configuration Release \
             -sdk iphonesimulator \
-            clean build | tee build.log | xcpretty
-          if [ $? -ne 0 ]; then
-            echo "Build failed, check build.log for details."
-            exit 1
-          fi
+            -derivedDataPath "$BUILD_DIR/DerivedData" \
+            clean build
       - name: Run SwiftShield
         script: |
           mint run swiftshield obfuscate \
@@ -56,9 +53,9 @@ workflows:
       - name: Export obfuscated IPA
         script: |
           xcodebuild -exportArchive \
-            -archivePath "$CM_BUILD_DIR/SwiftShield-Obfuscated.xcarchive" \
-            -exportOptionsPlist "$CM_BUILD_DIR/exportOptions.plist" \
-            -exportPath "$CM_BUILD_DIR/build"
+            -archivePath "$BUILD_DIR/SwiftShield-Obfuscated.xcarchive" \
+            -exportOptionsPlist "$BUILD_DIR/exportOptions.plist" \
+            -exportPath "$BUILD_DIR/build"
     artifacts:
       - build/*.ipa
       - /tmp/xcodebuild_logs/*.log
