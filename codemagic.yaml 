@@ -8,13 +8,11 @@ workflows:
     environment:
       ios_signing:
         distribution_type: app_store
-        bundle_id:
-          - com.greekmythpuzzles
-          - com.greekmythpuzzles.OneSignalNotificationServiceExtension
+        bundle_identifier: com.greekmythpuzzles
       vars:
-        BUNDLE_ID: "com.greekmythpuzzles"
         XCODE_WORKSPACE: "Greek Myth Puzzles Powe.xcworkspace"
         XCODE_SCHEME: "Greek Myth Puzzles Powe"
+        EXTENSION_SCHEME: "OneSignalNotificationServiceExtension"
         APP_STORE_APPLE_ID: 6670722073
       xcode: latest
       cocoapods: default
@@ -29,26 +27,31 @@ workflows:
           cd $CM_BUILD_DIR
           LATEST_BUILD_NUMBER=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID")
           agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
-      - name: Build the project
+      - name: Install Mint
+        script: |
+          brew install mint
+      - name: Install SwiftShield via Mint
+        script: |
+          mint install rockbruno/SwiftShield
+      - name: Build project before SwiftShield
         script: |
           xcodebuild \
             -workspace "$XCODE_WORKSPACE" \
             -scheme "$XCODE_SCHEME" \
-            -configuration Release \
-            -archivePath "$CM_BUILD_DIR/build/$XCODE_SCHEME.xcarchive" \
-            clean archive
+            -configuration Debug \
+            -sdk iphonesimulator \
+            clean build
       - name: Run SwiftShield
         script: |
-          ./Pods/SwiftShield/swiftshield \
-            --project "$XCODE_WORKSPACE" \
+          mint run swiftshield obfuscate \
+            --project-file "$XCODE_WORKSPACE" \
             --scheme "$XCODE_SCHEME" \
-            --archive "$CM_BUILD_DIR/build/$XCODE_SCHEME.xcarchive" \
-            --output "$CM_BUILD_DIR/build/$XCODE_SCHEME-Obfuscated.xcarchive" \
-            --config "$CM_BUILD_DIR/swiftshield.yml"
+            --ignore-targets OneSignalNotificationServiceExtension
+             --verbose
       - name: Export obfuscated IPA
         script: |
           xcodebuild -exportArchive \
-            -archivePath "$CM_BUILD_DIR/build/$XCODE_SCHEME-Obfuscated.xcarchive" \
+            -archivePath "$CM_BUILD_DIR/SwiftShield-Obfuscated.xcarchive" \
             -exportOptionsPlist "$CM_BUILD_DIR/exportOptions.plist" \
             -exportPath "$CM_BUILD_DIR/build"
     artifacts:
