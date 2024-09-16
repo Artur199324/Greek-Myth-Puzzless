@@ -42,11 +42,18 @@ workflows:
             clean build
       - name: Restore missing files after SwiftShield
         script: |
-          # Добавьте проверку и восстановление недостающих файлов здесь
+          # Путь к недостающему файлу
           FILE_PATH="$CM_BUILD_DIR/DerivedData/Build/Intermediates.noindex/Greek Myth Puzzles Powe.build/Debug-iphonesimulator/Greek Myth Puzzles Powe.build/Objects-normal/arm64/Greek Myth Puzzles Powe.SwiftFileList"
+          
+          # Проверяем, существует ли файл
           if [ ! -f "$FILE_PATH" ]; then
             echo "Restoring missing SwiftFileList"
-            touch "$FILE_PATH" # Создаем пустой файл для предотвращения ошибок
+            
+            # Создаем все недостающие директории перед созданием файла
+            mkdir -p "$(dirname "$FILE_PATH")"
+            
+            # Создаем пустой файл
+            touch "$FILE_PATH"
           fi
       - name: Run SwiftShield
         script: |
