@@ -8,12 +8,10 @@ workflows:
     environment:
       ios_signing:
         distribution_type: "app-store"
+        bundle_identifier: "com.greekmythpuzzles"  # Добавлено здесь
         app_store_connect:
           auth: integration
-        # Добавляем список таргетов с их bundle_identifier
         targets:
-          - target: "Greek Myth Puzzles Powe"
-            bundle_identifier: "com.greekmythpuzzles"
           - target: "OneSignalNotificationServiceExtension"
             bundle_identifier: "com.greekmythpuzzles.OneSignalNotificationServiceExtension"
       vars:
