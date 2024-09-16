@@ -35,22 +35,7 @@ workflows:
         script: |
           xcode-project build-ipa \
             --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
-            --scheme "$XCODE_SCHEME" \
-            --configuration Release \
-            --export-path "$CM_BUILD_DIR/build" \
-            --export-options-plist "$CM_BUILD_DIR/exportOptions.plist"
-      - name: Create exportOptions.plist
-        script: |
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > "$CM_BUILD_DIR/exportOptions.plist"
-          echo '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">' >> "$CM_BUILD_DIR/exportOptions.plist"
-          echo '<plist version="1.0">' >> "$CM_BUILD_DIR/exportOptions.plist"
-          echo '<dict>' >> "$CM_BUILD_DIR/exportOptions.plist"
-          echo '    <key>method</key>' >> "$CM_BUILD_DIR/exportOptions.plist"
-          echo '    <string>app-store</string>' >> "$CM_BUILD_DIR/exportOptions.plist"
-          echo '    <key>teamID</key>' >> "$CM_BUILD_DIR/exportOptions.plist"
-          echo '    <string>YOUR_TEAM_ID</string>' >> "$CM_BUILD_DIR/exportOptions.plist"
-          echo '</dict>' >> "$CM_BUILD_DIR/exportOptions.plist"
-          echo '</plist>' >> "$CM_BUILD_DIR/exportOptions.plist"
+            --scheme "$XCODE_SCHEME"
     artifacts:
       - build/*.ipa
       - /tmp/xcodebuild_logs/*.log
