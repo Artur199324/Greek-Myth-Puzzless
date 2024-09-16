@@ -47,7 +47,7 @@ workflows:
             --project-file "$XCODE_WORKSPACE" \
             --scheme "$XCODE_SCHEME" \
             --ignore-targets "OneSignalNotificationServiceExtension" \
-            --config "$CM_BUILD_DIR/swiftshield.yml" \  # Указываем путь к конфигурационному файлу
+            --config "$CM_BUILD_DIR/swiftshield.yml" \
             --verbose
       - name: Export obfuscated IPA
         script: |
