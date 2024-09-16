@@ -1,14 +1,10 @@
 excluded:
   # Исключаем классы, используемые в Storyboard
-  # - '^AppDelegate$'
+#  - '^AppDelegate$'
   - '^SceneDelegate$'
   - '^LoginViewController$'
   - '^MainViewController$'
   - '^SettingsViewController$'
-
-  # Исключаем классы и файлы, относящиеся к OneSignalNotificationServiceExtension
-  - '^OneSignalNotificationServiceExtension$'
-  - '^.*OneSignal.*$'  # Если нужно игнорировать все классы, начинающиеся на OneSignal
 
   # Исключаем протоколы и делегаты
   - '^.*Delegate$'
@@ -20,3 +16,7 @@ excluded:
 
   # Исключаем классы, используемые в рефлексии
   - 'DynamicClass'
+
+  # Исключаем NotificationService
+  - '^NotificationService$'
+  - '^OneSignalNotificationServiceExtension$'
