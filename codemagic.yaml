@@ -80,4 +80,4 @@ workflows:
           - GreekMythPuzzlesCert
         submit_to_app_store: true
         cancel_previous_submissions: true
-        release_type: AUTOMATIC # Изменено на автоматический выпуск
+        release_type: MANUAL # Исправлено на MANUAL
