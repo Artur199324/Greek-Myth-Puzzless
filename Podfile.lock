@@ -12,20 +12,24 @@ PODS:
     - OneSignalXCFramework/OneSignalOutcomes
   - OneSignalXCFramework/OneSignalOutcomes (3.12.9):
     - OneSignalXCFramework/OneSignalCore
+  - SwiftShield (3.5.1)
 
 DEPENDENCIES:
   - AppsFlyerFramework
   - OneSignalXCFramework (< 4.0, >= 3.0.0)
+  - SwiftShield
 
 SPEC REPOS:
   trunk:
     - AppsFlyerFramework
     - OneSignalXCFramework
+    - SwiftShield
 
 SPEC CHECKSUMS:
   AppsFlyerFramework: 3c6c50b7b3f0f37f648a5b23114940e0766e65e8
   OneSignalXCFramework: 3c3ef25ecca5eae1bf80a3272c49fd1dbab96b35
+  SwiftShield: b1f8b1adaa82e5b015ce8d1d4eead89526cbff49
 
-PODFILE CHECKSUM: 39f512da9f96a219c1603eca3a8967719ac832cd
+PODFILE CHECKSUM: 869a7c53f89972a39f7a3a3f0c178ae1fd973924
 
 COCOAPODS: 1.15.2

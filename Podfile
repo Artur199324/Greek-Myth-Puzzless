@@ -13,6 +13,9 @@ target 'Greek Myth Puzzles Powe' do
   # Добавляем AppsFlyer SDK
   pod 'AppsFlyerFramework'
 
+  # Добавляем SwiftShield для обфускации
+  pod 'SwiftShield'
+
   # Ваши другие Pods здесь
 
   target 'Greek Myth Puzzles PoweTests' do

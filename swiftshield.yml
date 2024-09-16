@@ -1,6 +1,6 @@
 excluded:
   # Исключаем классы, используемые в Storyboard
-  - '^AppDelegate$'
+#  - '^AppDelegate$'
   - '^SceneDelegate$'
   - '^LoginViewController$'
   - '^MainViewController$'
