@@ -32,11 +32,20 @@ workflows:
       - name: Install SwiftShield via Mint
         script: |
           mint install rockbruno/SwiftShield
+      - name: Build project before SwiftShield
+        script: |
+          xcodebuild \
+            -workspace "$XCODE_WORKSPACE" \
+            -scheme "$XCODE_SCHEME" \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            clean build
       - name: Run SwiftShield
         script: |
           mint run swiftshield obfuscate \
             --project-file "$XCODE_WORKSPACE" \
-            --scheme "$XCODE_SCHEME"
+            --scheme "$XCODE_SCHEME" \
+            --ignore-targets OneSignalNotificationServiceExtension
       - name: Export obfuscated IPA
         script: |
           xcodebuild -exportArchive \
