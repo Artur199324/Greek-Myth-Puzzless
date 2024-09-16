@@ -8,9 +8,10 @@ workflows:
     environment:
       ios_signing:
         distribution_type: app_store
+        # Убедитесь, что идентификаторы правильные и совпадают с настройками в Xcode
         bundle_identifier: 
-          - com.greekmythpuzzles
-          - com.greekmythpuzzles.OneSignalNotificationServiceExtension
+          - com.greekmythpuzzles # Основное приложение
+          - com.greekmythpuzzles # Для расширения, если путь совпадает
       vars:
         XCODE_WORKSPACE: "Greek Myth Puzzles Powe.xcworkspace"
         XCODE_SCHEME: "Greek Myth Puzzles Powe"
