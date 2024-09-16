@@ -17,6 +17,7 @@
 		751656452C9767A000E0EF4C /* swiftshield.yml in Resources */ = {isa = PBXBuildFile; fileRef = 751656442C9767A000E0EF4C /* swiftshield.yml */; };
 		756655A32C92CDF0006F0B23 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756655A22C92CDF0006F0B23 /* WebView.swift */; };
 		756655B62C92E9B3006F0B23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756655B52C92E9B3006F0B23 /* AppDelegate.swift */; };
+		759F73CC2C9883A600F669CE /* AppsFlyerLib in Frameworks */ = {isa = PBXBuildFile; productRef = 759F73CB2C9883A600F669CE /* AppsFlyerLib */; };
 		75B586AB2C86324D00F23B08 /* Olympus_Glory_Divine_PoweApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B586AA2C86324D00F23B08 /* Olympus_Glory_Divine_PoweApp.swift */; };
 		75B586AD2C86324D00F23B08 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B586AC2C86324D00F23B08 /* ContentView.swift */; };
 		75B586AF2C86325000F23B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75B586AE2C86325000F23B08 /* Assets.xcassets */; };
@@ -124,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7516563F2C94487000E0EF4C /* FacebookCore in Frameworks */,
+				759F73CC2C9883A600F669CE /* AppsFlyerLib in Frameworks */,
 				751656412C944C9E00E0EF4C /* FacebookShare in Frameworks */,
 				7516563A2C9437BF00E0EF4C /* FirebaseRemoteConfig in Frameworks */,
 				5DD3C245E1BECE3EBA08E716 /* Pods_Greek_Myth_Puzzles_Powe.framework in Frameworks */,
@@ -289,7 +291,6 @@
 				75B586A42C86324D00F23B08 /* Frameworks */,
 				75B586A52C86324D00F23B08 /* Resources */,
 				756655B32C92E369006F0B23 /* Embed Foundation Extensions */,
-				91DA0D776DDB9E4A849BC02F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -300,6 +301,7 @@
 				751656392C9437BF00E0EF4C /* FirebaseRemoteConfig */,
 				7516563E2C94487000E0EF4C /* FacebookCore */,
 				751656402C944C9E00E0EF4C /* FacebookShare */,
+				759F73CB2C9883A600F669CE /* AppsFlyerLib */,
 			);
 			productName = "Olympus Glory Divine Powe";
 			productReference = 75B586A72C86324D00F23B08 /* Greek Myth Puzzles Powe.app */;
@@ -378,6 +380,7 @@
 			packageReferences = (
 				751656382C9437BF00E0EF4C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				7516563D2C94487000E0EF4C /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				759F73CA2C9883A600F669CE /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */,
 			);
 			productRefGroup = 75B586A82C86324D00F23B08 /* Products */;
 			projectDirPath = "";
@@ -462,23 +465,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		91DA0D776DDB9E4A849BC02F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Greek Myth Puzzles Powe/Pods-Greek Myth Puzzles Powe-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Greek Myth Puzzles Powe/Pods-Greek Myth Puzzles Powe-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Greek Myth Puzzles Powe/Pods-Greek Myth Puzzles Powe-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D0ADA95699A947569825697B /* [CP] Check Pods Manifest.lock */ = {
@@ -888,6 +874,14 @@
 				minimumVersion = 14.1.0;
 			};
 		};
+		759F73CA2C9883A600F669CE /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppsFlyerSDK/AppsFlyerFramework";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.15.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -905,6 +899,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7516563D2C94487000E0EF4C /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookShare;
+		};
+		759F73CB2C9883A600F669CE /* AppsFlyerLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 759F73CA2C9883A600F669CE /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */;
+			productName = AppsFlyerLib;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

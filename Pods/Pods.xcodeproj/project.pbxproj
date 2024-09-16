@@ -6,72 +6,27 @@
 	objectVersion = 56;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		1BDAC84B71249E18F76EB138FA010375 /* SwiftShield */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 683B7E2771DF90F81CA5A1262E7EA4DD /* Build configuration list for PBXAggregateTarget "SwiftShield" */;
-			buildPhases = (
-			);
-			dependencies = (
-			);
-			name = SwiftShield;
-		};
-		B0B23938B1EBCBAD2419AB6E9D222A0B /* AppsFlyerFramework */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 71B9A5BD1FADAE479D403809E582EC07 /* Build configuration list for PBXAggregateTarget "AppsFlyerFramework" */;
-			buildPhases = (
-				DB7C100E6D7A5CF954757DB8962D9B72 /* [CP] Copy XCFrameworks */,
-			);
-			dependencies = (
-				A122619855AC217AA0D1A8468D34D5DF /* PBXTargetDependency */,
-			);
-			name = AppsFlyerFramework;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		111A7EA30C64F25A33950CF769DBE4C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		134233D9B32D3C939B0FFF0E8EE58089 /* Pods-Greek Myth Puzzles Powe-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B2C2E5623B9FD3FB4648BE86AEE14BA5 /* Pods-Greek Myth Puzzles Powe-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2296CF370F6D93BFAF2FAE5301F3538A /* Pods-Greek Myth Puzzles PoweTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B91E9F48B9FFB3EDCC02ADC5EC1A745 /* Pods-Greek Myth Puzzles PoweTests-dummy.m */; };
-		823A8B99B901977EAAFCC9D82A7172F0 /* Pods-Greek Myth Puzzles PoweUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 89D2987AAB71A3246DD9D8C84B64C2A7 /* Pods-Greek Myth Puzzles PoweUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8A071699DE0980B45AFC13C31D50C1D8 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 464EEFFF90B106CC7F1544875B1C2DB6 /* PrivacyInfo.xcprivacy */; };
-		950DEE557A0A1165CD925C771952DFDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		A2408441CEB054EC0E88697BDA6A0679 /* Pods-Greek Myth Puzzles PoweUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF07EDFC2833ED2A673F54153837BB6 /* Pods-Greek Myth Puzzles PoweUITests-dummy.m */; };
+		2296CF370F6D93BFAF2FAE5301F3538A /* Pods-Greek Myth Puzzles PoweTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B187554A70BC48551105B1177FF2786 /* Pods-Greek Myth Puzzles PoweTests-dummy.m */; };
+		4919ACD30F5C4054FE040308B4C66568 /* Pods-Greek Myth Puzzles Powe-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E8FD8697EF76FDE614E02337744CCF2B /* Pods-Greek Myth Puzzles Powe-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		823A8B99B901977EAAFCC9D82A7172F0 /* Pods-Greek Myth Puzzles PoweUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D35BFB8DCE9786FF40B090DD0646F312 /* Pods-Greek Myth Puzzles PoweUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A2408441CEB054EC0E88697BDA6A0679 /* Pods-Greek Myth Puzzles PoweUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA3C247A95A067A6F24E71C0F4D80C0 /* Pods-Greek Myth Puzzles PoweUITests-dummy.m */; };
 		C80BD7C4095ECD8EDA8E1FC7DAA5CA9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		DA39C14BED740E346DB7B583DBB6EDCF /* Pods-Greek Myth Puzzles PoweTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F839710FAF75F172203C8344D60579E /* Pods-Greek Myth Puzzles PoweTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F0D2698441714A59767F7A9632C41D39 /* Pods-Greek Myth Puzzles Powe-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F4ED1C5E7072F08DC98E292C03746D /* Pods-Greek Myth Puzzles Powe-dummy.m */; };
+		DA39C14BED740E346DB7B583DBB6EDCF /* Pods-Greek Myth Puzzles PoweTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 27E059B97B500E9A9250A2183EC69E34 /* Pods-Greek Myth Puzzles PoweTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F19FD703567BA297E7201EE6DC2479A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		F886895492B6E6E045450C51B3BA92FD /* Pods-Greek Myth Puzzles Powe-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1433438FC1ED7A31997F2F1A11DA2C /* Pods-Greek Myth Puzzles Powe-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1583280409689CED46B9EE3AD7551918 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1BDAC84B71249E18F76EB138FA010375;
-			remoteInfo = SwiftShield;
-		};
-		9BA241D0E1ABDE4A230D1D3F6B878367 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C1B7E9FCC674E977BE2D38FC2709798C;
-			remoteInfo = "AppsFlyerFramework-AppsFlyerLib_Privacy";
-		};
-		AABC0982843F535E4A21B4798904A2D2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B0B23938B1EBCBAD2419AB6E9D222A0B;
-			remoteInfo = AppsFlyerFramework;
-		};
-		AC860A3B116C2C4C7251589498DF0B71 /* PBXContainerItemProxy */ = {
+		5E55A3B7DEBEC81693D1517EA272D691 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A215E0277CD80DE0F3724930829DF9E0;
 			remoteInfo = "Pods-Greek Myth Puzzles Powe";
 		};
-		C300712C4A3E301845B27F2619A73ED9 /* PBXContainerItemProxy */ = {
+		B26821292E132D650868267C0AB85864 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -81,45 +36,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01426AF3D4A415E9848A7B65DC56B940 /* Pods-Greek Myth Puzzles PoweTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Greek Myth Puzzles PoweTests.release.xcconfig"; sourceTree = "<group>"; };
-		03F4ED1C5E7072F08DC98E292C03746D /* Pods-Greek Myth Puzzles Powe-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Greek Myth Puzzles Powe-dummy.m"; sourceTree = "<group>"; };
-		07B448C1EF3FCC91E7201303C317A91B /* Pods-Greek Myth Puzzles Powe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Greek Myth Puzzles Powe.release.xcconfig"; sourceTree = "<group>"; };
-		0B91E9F48B9FFB3EDCC02ADC5EC1A745 /* Pods-Greek Myth Puzzles PoweTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Greek Myth Puzzles PoweTests-dummy.m"; sourceTree = "<group>"; };
-		2C875E221DD8128A6D1D1F3792235DCB /* Pods-Greek Myth Puzzles Powe-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Greek Myth Puzzles Powe-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2F54747CE30032360723B49A9C31C1E4 /* Pods-Greek Myth Puzzles PoweTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Greek Myth Puzzles PoweTests-Info.plist"; sourceTree = "<group>"; };
-		331540C071915A18FCD1725C9DFD4D1C /* Pods-Greek Myth Puzzles Powe-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Greek Myth Puzzles Powe-acknowledgements.plist"; sourceTree = "<group>"; };
+		08B841AD43F533F5C39B50D7002BFE81 /* Pods-Greek Myth Puzzles PoweUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Greek Myth Puzzles PoweUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0996BB4C0A3F4E2CD879B233FCBFD2F6 /* Pods-Greek Myth Puzzles PoweTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Greek Myth Puzzles PoweTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0DB55E89D4CE14216F2B756F8849284A /* Pods-Greek Myth Puzzles PoweTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Greek Myth Puzzles PoweTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1F7C30CC07232536668CAB3EBD82D67B /* Pods-Greek Myth Puzzles PoweTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Greek Myth Puzzles PoweTests.release.xcconfig"; sourceTree = "<group>"; };
+		2672738D4B43FE5C5C62930D8395B0FC /* Pods-Greek Myth Puzzles PoweUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Greek Myth Puzzles PoweUITests-Info.plist"; sourceTree = "<group>"; };
+		276964D0EC23BE60AFE19BED91065258 /* Pods-Greek Myth Puzzles Powe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Greek Myth Puzzles Powe.release.xcconfig"; sourceTree = "<group>"; };
+		27E059B97B500E9A9250A2183EC69E34 /* Pods-Greek Myth Puzzles PoweTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Greek Myth Puzzles PoweTests-umbrella.h"; sourceTree = "<group>"; };
+		3626B88FC04A435D3258DDC671574069 /* Pods-Greek Myth Puzzles Powe-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Greek Myth Puzzles Powe-acknowledgements.markdown"; sourceTree = "<group>"; };
 		37B1508B6B422DBF4AFBB0B0E437AB21 /* Pods-Greek Myth Puzzles PoweUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Greek Myth Puzzles PoweUITests"; path = Pods_Greek_Myth_Puzzles_PoweUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		39772C4AC1EF78F1D44FF9DB3A688040 /* Pods-Greek Myth Puzzles PoweTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Greek Myth Puzzles PoweTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		39C2AB84F76352CC5C054408DD744259 /* Pods-Greek Myth Puzzles PoweTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Greek Myth Puzzles PoweTests"; path = Pods_Greek_Myth_Puzzles_PoweTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E824973250B30BBF280A428CC9A844D /* AppsFlyerFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AppsFlyerFramework.debug.xcconfig; sourceTree = "<group>"; };
-		454BBCE3BC6B9A3486224C7B50F56B9C /* AppsFlyerLib.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = AppsFlyerLib.xcframework; path = binaries/xcframework/full/AppsFlyerLib.xcframework; sourceTree = "<group>"; };
-		464EEFFF90B106CC7F1544875B1C2DB6 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = binaries/Resources/nonStrict/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		4F839710FAF75F172203C8344D60579E /* Pods-Greek Myth Puzzles PoweTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Greek Myth Puzzles PoweTests-umbrella.h"; sourceTree = "<group>"; };
-		538080D9EE029FB0D7CE344546322BCD /* Pods-Greek Myth Puzzles PoweTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Greek Myth Puzzles PoweTests.modulemap"; sourceTree = "<group>"; };
-		578A2605B8BA747CA8F01F6E8B61BB13 /* AppsFlyerFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AppsFlyerFramework.release.xcconfig; sourceTree = "<group>"; };
-		5B9130C9B83540AFE17A825CD2C0E30C /* Pods-Greek Myth Puzzles PoweTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Greek Myth Puzzles PoweTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3B187554A70BC48551105B1177FF2786 /* Pods-Greek Myth Puzzles PoweTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Greek Myth Puzzles PoweTests-dummy.m"; sourceTree = "<group>"; };
+		3BA3C247A95A067A6F24E71C0F4D80C0 /* Pods-Greek Myth Puzzles PoweUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Greek Myth Puzzles PoweUITests-dummy.m"; sourceTree = "<group>"; };
+		59B0856DA0BA0068031A90E570B4862F /* Pods-Greek Myth Puzzles Powe-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Greek Myth Puzzles Powe-acknowledgements.plist"; sourceTree = "<group>"; };
+		5E5E7371604D0D931B7ACA444D9647A2 /* Pods-Greek Myth Puzzles Powe-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Greek Myth Puzzles Powe-Info.plist"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		75D7CACDC9A66FC9041E3520B5453C5B /* Pods-Greek Myth Puzzles PoweUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Greek Myth Puzzles PoweUITests-Info.plist"; sourceTree = "<group>"; };
-		7A726EBBA9D9DD6CA8EF505D17D98719 /* Pods-Greek Myth Puzzles PoweUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Greek Myth Puzzles PoweUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		804EBB09E7624EA856CC9D5C438BCD90 /* ResourceBundle-AppsFlyerLib_Privacy-AppsFlyerFramework-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-AppsFlyerLib_Privacy-AppsFlyerFramework-Info.plist"; sourceTree = "<group>"; };
-		87871DCC3EE95D645F13554FBA5A0898 /* Pods-Greek Myth Puzzles Powe-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Greek Myth Puzzles Powe-Info.plist"; sourceTree = "<group>"; };
-		89D2987AAB71A3246DD9D8C84B64C2A7 /* Pods-Greek Myth Puzzles PoweUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Greek Myth Puzzles PoweUITests-umbrella.h"; sourceTree = "<group>"; };
-		8AF07EDFC2833ED2A673F54153837BB6 /* Pods-Greek Myth Puzzles PoweUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Greek Myth Puzzles PoweUITests-dummy.m"; sourceTree = "<group>"; };
+		84F6A8CB12CCF3565EB251641E722254 /* Pods-Greek Myth Puzzles PoweUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Greek Myth Puzzles PoweUITests.modulemap"; sourceTree = "<group>"; };
+		9C247B2D2C297ADF3BAD7BDFCCCC946C /* Pods-Greek Myth Puzzles Powe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Greek Myth Puzzles Powe.debug.xcconfig"; sourceTree = "<group>"; };
+		9D0C81082B6D5F45982AB91F5C6863AA /* Pods-Greek Myth Puzzles PoweUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Greek Myth Puzzles PoweUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A7E26C6B377A8A866B2BB764AC4B504F /* Pods-Greek Myth Puzzles Powe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Greek Myth Puzzles Powe.debug.xcconfig"; sourceTree = "<group>"; };
-		B2C2E5623B9FD3FB4648BE86AEE14BA5 /* Pods-Greek Myth Puzzles Powe-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Greek Myth Puzzles Powe-umbrella.h"; sourceTree = "<group>"; };
-		B4251B9E6D7A0488DFB42F82EE888E13 /* AppsFlyerFramework-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "AppsFlyerFramework-xcframeworks.sh"; sourceTree = "<group>"; };
-		BABC9B8C4D7B86FD419E03C57F2B758B /* Pods-Greek Myth Puzzles Powe.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Greek Myth Puzzles Powe.modulemap"; sourceTree = "<group>"; };
-		C5C87ED984A72FA275E70A4128AE6237 /* Pods-Greek Myth Puzzles Powe-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Greek Myth Puzzles Powe-resources.sh"; sourceTree = "<group>"; };
-		CFDC04794A45E18A534887584B65899C /* Pods-Greek Myth Puzzles PoweTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Greek Myth Puzzles PoweTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DDEAD447247DFA15F1E4DB584614F80C /* AppsFlyerFramework-AppsFlyerLib_Privacy */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "AppsFlyerFramework-AppsFlyerLib_Privacy"; path = AppsFlyerLib_Privacy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF160203FD9542DF13F2B2F31403EA3B /* Pods-Greek Myth Puzzles PoweUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Greek Myth Puzzles PoweUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		DFD8CBC36393A992E27FA310876798B9 /* SwiftShield.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftShield.release.xcconfig; sourceTree = "<group>"; };
-		EF476E8FFE87445CFEF35646F94653D5 /* Pods-Greek Myth Puzzles PoweUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Greek Myth Puzzles PoweUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F0E69212CB0F94733BC1DA97E12D03F5 /* Pods-Greek Myth Puzzles PoweUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Greek Myth Puzzles PoweUITests.modulemap"; sourceTree = "<group>"; };
+		AD11F7F5303F73EDA4CAA17101D4BA74 /* Pods-Greek Myth Puzzles PoweTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Greek Myth Puzzles PoweTests-Info.plist"; sourceTree = "<group>"; };
+		BB1433438FC1ED7A31997F2F1A11DA2C /* Pods-Greek Myth Puzzles Powe-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Greek Myth Puzzles Powe-dummy.m"; sourceTree = "<group>"; };
+		BB2E6426B97867931922F096742B69E6 /* Pods-Greek Myth Puzzles Powe.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Greek Myth Puzzles Powe.modulemap"; sourceTree = "<group>"; };
+		C8BDFBD233CF9389FCB59A42FE9324C2 /* Pods-Greek Myth Puzzles PoweTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Greek Myth Puzzles PoweTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		CBB4DEFE81872116CFE230053E6AB39D /* Pods-Greek Myth Puzzles PoweTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Greek Myth Puzzles PoweTests.modulemap"; sourceTree = "<group>"; };
+		D35BFB8DCE9786FF40B090DD0646F312 /* Pods-Greek Myth Puzzles PoweUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Greek Myth Puzzles PoweUITests-umbrella.h"; sourceTree = "<group>"; };
+		E6FCFC62C38585BB9D6D89D5226954A6 /* Pods-Greek Myth Puzzles PoweUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Greek Myth Puzzles PoweUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		E8FD8697EF76FDE614E02337744CCF2B /* Pods-Greek Myth Puzzles Powe-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Greek Myth Puzzles Powe-umbrella.h"; sourceTree = "<group>"; };
 		F6050BED5AAE1AFC359FB97DA25EA40B /* Pods-Greek Myth Puzzles Powe */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Greek Myth Puzzles Powe"; path = Pods_Greek_Myth_Puzzles_Powe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6CFAC2EE89595DB16F8D0D565D928A2 /* Pods-Greek Myth Puzzles PoweUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Greek Myth Puzzles PoweUITests.release.xcconfig"; sourceTree = "<group>"; };
-		F99518E8698473FE0EC96B057A4B0E13 /* SwiftShield.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftShield.debug.xcconfig; sourceTree = "<group>"; };
+		FF9641D6F7F5A782B05E2F619079F1C6 /* Pods-Greek Myth Puzzles PoweUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Greek Myth Puzzles PoweUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,13 +76,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7253C5E7623172553677CAC4D5021792 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D1C6CA4B17A3937A1357DC957141220B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -146,66 +84,60 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9019F8F64F098BDF0AB7973A66D5A73 /* Frameworks */ = {
+		E22B48E45EC2B83D6B6989949AE02FA9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				950DEE557A0A1165CD925C771952DFDE /* Foundation.framework in Frameworks */,
+				F19FD703567BA297E7201EE6DC2479A1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		28C4F2069C425653ABB6458120B6298E /* Support Files */ = {
+		24FDEDD9DEC520089098633ABF9D1E12 /* Pods-Greek Myth Puzzles Powe */ = {
 			isa = PBXGroup;
 			children = (
-				B4251B9E6D7A0488DFB42F82EE888E13 /* AppsFlyerFramework-xcframeworks.sh */,
-				3E824973250B30BBF280A428CC9A844D /* AppsFlyerFramework.debug.xcconfig */,
-				578A2605B8BA747CA8F01F6E8B61BB13 /* AppsFlyerFramework.release.xcconfig */,
-				804EBB09E7624EA856CC9D5C438BCD90 /* ResourceBundle-AppsFlyerLib_Privacy-AppsFlyerFramework-Info.plist */,
+				BB2E6426B97867931922F096742B69E6 /* Pods-Greek Myth Puzzles Powe.modulemap */,
+				3626B88FC04A435D3258DDC671574069 /* Pods-Greek Myth Puzzles Powe-acknowledgements.markdown */,
+				59B0856DA0BA0068031A90E570B4862F /* Pods-Greek Myth Puzzles Powe-acknowledgements.plist */,
+				BB1433438FC1ED7A31997F2F1A11DA2C /* Pods-Greek Myth Puzzles Powe-dummy.m */,
+				5E5E7371604D0D931B7ACA444D9647A2 /* Pods-Greek Myth Puzzles Powe-Info.plist */,
+				E8FD8697EF76FDE614E02337744CCF2B /* Pods-Greek Myth Puzzles Powe-umbrella.h */,
+				9C247B2D2C297ADF3BAD7BDFCCCC946C /* Pods-Greek Myth Puzzles Powe.debug.xcconfig */,
+				276964D0EC23BE60AFE19BED91065258 /* Pods-Greek Myth Puzzles Powe.release.xcconfig */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/AppsFlyerFramework";
+			name = "Pods-Greek Myth Puzzles Powe";
+			path = "Target Support Files/Pods-Greek Myth Puzzles Powe";
 			sourceTree = "<group>";
 		};
-		2AAB470ED58D6A4A47D0E3FC27AF7F24 /* Pods-Greek Myth Puzzles PoweUITests */ = {
+		28A87F49BA98DADCEFA3111AE69150C6 /* Pods-Greek Myth Puzzles PoweUITests */ = {
 			isa = PBXGroup;
 			children = (
-				F0E69212CB0F94733BC1DA97E12D03F5 /* Pods-Greek Myth Puzzles PoweUITests.modulemap */,
-				EF476E8FFE87445CFEF35646F94653D5 /* Pods-Greek Myth Puzzles PoweUITests-acknowledgements.markdown */,
-				DF160203FD9542DF13F2B2F31403EA3B /* Pods-Greek Myth Puzzles PoweUITests-acknowledgements.plist */,
-				8AF07EDFC2833ED2A673F54153837BB6 /* Pods-Greek Myth Puzzles PoweUITests-dummy.m */,
-				75D7CACDC9A66FC9041E3520B5453C5B /* Pods-Greek Myth Puzzles PoweUITests-Info.plist */,
-				89D2987AAB71A3246DD9D8C84B64C2A7 /* Pods-Greek Myth Puzzles PoweUITests-umbrella.h */,
-				7A726EBBA9D9DD6CA8EF505D17D98719 /* Pods-Greek Myth Puzzles PoweUITests.debug.xcconfig */,
-				F6CFAC2EE89595DB16F8D0D565D928A2 /* Pods-Greek Myth Puzzles PoweUITests.release.xcconfig */,
+				84F6A8CB12CCF3565EB251641E722254 /* Pods-Greek Myth Puzzles PoweUITests.modulemap */,
+				FF9641D6F7F5A782B05E2F619079F1C6 /* Pods-Greek Myth Puzzles PoweUITests-acknowledgements.markdown */,
+				E6FCFC62C38585BB9D6D89D5226954A6 /* Pods-Greek Myth Puzzles PoweUITests-acknowledgements.plist */,
+				3BA3C247A95A067A6F24E71C0F4D80C0 /* Pods-Greek Myth Puzzles PoweUITests-dummy.m */,
+				2672738D4B43FE5C5C62930D8395B0FC /* Pods-Greek Myth Puzzles PoweUITests-Info.plist */,
+				D35BFB8DCE9786FF40B090DD0646F312 /* Pods-Greek Myth Puzzles PoweUITests-umbrella.h */,
+				08B841AD43F533F5C39B50D7002BFE81 /* Pods-Greek Myth Puzzles PoweUITests.debug.xcconfig */,
+				9D0C81082B6D5F45982AB91F5C6863AA /* Pods-Greek Myth Puzzles PoweUITests.release.xcconfig */,
 			);
 			name = "Pods-Greek Myth Puzzles PoweUITests";
 			path = "Target Support Files/Pods-Greek Myth Puzzles PoweUITests";
 			sourceTree = "<group>";
 		};
-		5233451B075BF8FCD2014155286785E8 /* Support Files */ = {
+		3F94C27BB0585F0BEB86DC10138E7A91 /* Pods-Greek Myth Puzzles PoweTests */ = {
 			isa = PBXGroup;
 			children = (
-				F99518E8698473FE0EC96B057A4B0E13 /* SwiftShield.debug.xcconfig */,
-				DFD8CBC36393A992E27FA310876798B9 /* SwiftShield.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftShield";
-			sourceTree = "<group>";
-		};
-		54055685F4DFFBE0547FFCB76707DFF6 /* Pods-Greek Myth Puzzles PoweTests */ = {
-			isa = PBXGroup;
-			children = (
-				538080D9EE029FB0D7CE344546322BCD /* Pods-Greek Myth Puzzles PoweTests.modulemap */,
-				39772C4AC1EF78F1D44FF9DB3A688040 /* Pods-Greek Myth Puzzles PoweTests-acknowledgements.markdown */,
-				5B9130C9B83540AFE17A825CD2C0E30C /* Pods-Greek Myth Puzzles PoweTests-acknowledgements.plist */,
-				0B91E9F48B9FFB3EDCC02ADC5EC1A745 /* Pods-Greek Myth Puzzles PoweTests-dummy.m */,
-				2F54747CE30032360723B49A9C31C1E4 /* Pods-Greek Myth Puzzles PoweTests-Info.plist */,
-				4F839710FAF75F172203C8344D60579E /* Pods-Greek Myth Puzzles PoweTests-umbrella.h */,
-				CFDC04794A45E18A534887584B65899C /* Pods-Greek Myth Puzzles PoweTests.debug.xcconfig */,
-				01426AF3D4A415E9848A7B65DC56B940 /* Pods-Greek Myth Puzzles PoweTests.release.xcconfig */,
+				CBB4DEFE81872116CFE230053E6AB39D /* Pods-Greek Myth Puzzles PoweTests.modulemap */,
+				0996BB4C0A3F4E2CD879B233FCBFD2F6 /* Pods-Greek Myth Puzzles PoweTests-acknowledgements.markdown */,
+				C8BDFBD233CF9389FCB59A42FE9324C2 /* Pods-Greek Myth Puzzles PoweTests-acknowledgements.plist */,
+				3B187554A70BC48551105B1177FF2786 /* Pods-Greek Myth Puzzles PoweTests-dummy.m */,
+				AD11F7F5303F73EDA4CAA17101D4BA74 /* Pods-Greek Myth Puzzles PoweTests-Info.plist */,
+				27E059B97B500E9A9250A2183EC69E34 /* Pods-Greek Myth Puzzles PoweTests-umbrella.h */,
+				0DB55E89D4CE14216F2B756F8849284A /* Pods-Greek Myth Puzzles PoweTests.debug.xcconfig */,
+				1F7C30CC07232536668CAB3EBD82D67B /* Pods-Greek Myth Puzzles PoweTests.release.xcconfig */,
 			);
 			name = "Pods-Greek Myth Puzzles PoweTests";
 			path = "Target Support Files/Pods-Greek Myth Puzzles PoweTests";
@@ -219,78 +151,14 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		5C891B7F65427AF7F6E737061163F79D /* Products */ = {
+		AEE2C4FB742FDB498DF32CE2C96D0174 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				DDEAD447247DFA15F1E4DB584614F80C /* AppsFlyerFramework-AppsFlyerLib_Privacy */,
-				F6050BED5AAE1AFC359FB97DA25EA40B /* Pods-Greek Myth Puzzles Powe */,
-				39C2AB84F76352CC5C054408DD744259 /* Pods-Greek Myth Puzzles PoweTests */,
-				37B1508B6B422DBF4AFBB0B0E437AB21 /* Pods-Greek Myth Puzzles PoweUITests */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		5D8396D2105ACD5AAD5542CFDB25AB00 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				743ECB5A7E48A147CCB9F9E49CBE8272 /* Frameworks */,
-				96C8A46B96435A9A9FACBC844A49AF8A /* Resources */,
-			);
-			name = Main;
-			sourceTree = "<group>";
-		};
-		743ECB5A7E48A147CCB9F9E49CBE8272 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				454BBCE3BC6B9A3486224C7B50F56B9C /* AppsFlyerLib.xcframework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8C41F52558E625456DF8FDF43E76D5DF /* AppsFlyerFramework */ = {
-			isa = PBXGroup;
-			children = (
-				5D8396D2105ACD5AAD5542CFDB25AB00 /* Main */,
-				28C4F2069C425653ABB6458120B6298E /* Support Files */,
-			);
-			name = AppsFlyerFramework;
-			path = AppsFlyerFramework;
-			sourceTree = "<group>";
-		};
-		8EB1CEC4B7A0D4726E2D01EE6374C356 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8C41F52558E625456DF8FDF43E76D5DF /* AppsFlyerFramework */,
-				A93FF960519C9425208FDC10904F93AE /* SwiftShield */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		96C8A46B96435A9A9FACBC844A49AF8A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				464EEFFF90B106CC7F1544875B1C2DB6 /* PrivacyInfo.xcprivacy */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		A2153C913E0C4D60A65749A98F5A06F3 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CFC0106EA1AB9B278E5CC46F26C599B7 /* Pods-Greek Myth Puzzles Powe */,
-				54055685F4DFFBE0547FFCB76707DFF6 /* Pods-Greek Myth Puzzles PoweTests */,
-				2AAB470ED58D6A4A47D0E3FC27AF7F24 /* Pods-Greek Myth Puzzles PoweUITests */,
+				24FDEDD9DEC520089098633ABF9D1E12 /* Pods-Greek Myth Puzzles Powe */,
+				3F94C27BB0585F0BEB86DC10138E7A91 /* Pods-Greek Myth Puzzles PoweTests */,
+				28A87F49BA98DADCEFA3111AE69150C6 /* Pods-Greek Myth Puzzles PoweUITests */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		A93FF960519C9425208FDC10904F93AE /* SwiftShield */ = {
-			isa = PBXGroup;
-			children = (
-				5233451B075BF8FCD2014155286785E8 /* Support Files */,
-			);
-			name = SwiftShield;
-			path = SwiftShield;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -298,27 +166,9 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				8EB1CEC4B7A0D4726E2D01EE6374C356 /* Pods */,
-				5C891B7F65427AF7F6E737061163F79D /* Products */,
-				A2153C913E0C4D60A65749A98F5A06F3 /* Targets Support Files */,
+				D373D5DDD73F63E45B7962DE8D54A6F0 /* Products */,
+				AEE2C4FB742FDB498DF32CE2C96D0174 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		CFC0106EA1AB9B278E5CC46F26C599B7 /* Pods-Greek Myth Puzzles Powe */ = {
-			isa = PBXGroup;
-			children = (
-				BABC9B8C4D7B86FD419E03C57F2B758B /* Pods-Greek Myth Puzzles Powe.modulemap */,
-				2C875E221DD8128A6D1D1F3792235DCB /* Pods-Greek Myth Puzzles Powe-acknowledgements.markdown */,
-				331540C071915A18FCD1725C9DFD4D1C /* Pods-Greek Myth Puzzles Powe-acknowledgements.plist */,
-				03F4ED1C5E7072F08DC98E292C03746D /* Pods-Greek Myth Puzzles Powe-dummy.m */,
-				87871DCC3EE95D645F13554FBA5A0898 /* Pods-Greek Myth Puzzles Powe-Info.plist */,
-				C5C87ED984A72FA275E70A4128AE6237 /* Pods-Greek Myth Puzzles Powe-resources.sh */,
-				B2C2E5623B9FD3FB4648BE86AEE14BA5 /* Pods-Greek Myth Puzzles Powe-umbrella.h */,
-				A7E26C6B377A8A866B2BB764AC4B504F /* Pods-Greek Myth Puzzles Powe.debug.xcconfig */,
-				07B448C1EF3FCC91E7201303C317A91B /* Pods-Greek Myth Puzzles Powe.release.xcconfig */,
-			);
-			name = "Pods-Greek Myth Puzzles Powe";
-			path = "Target Support Files/Pods-Greek Myth Puzzles Powe";
 			sourceTree = "<group>";
 		};
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
@@ -327,6 +177,16 @@
 				578452D2E740E91742655AC8F1636D1F /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D373D5DDD73F63E45B7962DE8D54A6F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F6050BED5AAE1AFC359FB97DA25EA40B /* Pods-Greek Myth Puzzles Powe */,
+				39C2AB84F76352CC5C054408DD744259 /* Pods-Greek Myth Puzzles PoweTests */,
+				37B1508B6B422DBF4AFBB0B0E437AB21 /* Pods-Greek Myth Puzzles PoweUITests */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,11 +200,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3FB67AD3305FB956A5340781DCE69581 /* Headers */ = {
+		BCF1BADD1C18A59796198C694BDFBA6C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				134233D9B32D3C939B0FFF0E8EE58089 /* Pods-Greek Myth Puzzles Powe-umbrella.h in Headers */,
+				4919ACD30F5C4054FE040308B4C66568 /* Pods-Greek Myth Puzzles Powe-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +231,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				26907D747A4CCBA8E813F05140A169FE /* PBXTargetDependency */,
+				596D78B20AE03B4DAB28E3E229EAC1BA /* PBXTargetDependency */,
 			);
 			name = "Pods-Greek Myth Puzzles PoweUITests";
 			productName = Pods_Greek_Myth_Puzzles_PoweUITests;
@@ -380,40 +240,21 @@
 		};
 		A215E0277CD80DE0F3724930829DF9E0 /* Pods-Greek Myth Puzzles Powe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ADC6097419677BADD9F4594C0D91B47A /* Build configuration list for PBXNativeTarget "Pods-Greek Myth Puzzles Powe" */;
+			buildConfigurationList = C8EF8F141B303F0C59982BE3CB005CD3 /* Build configuration list for PBXNativeTarget "Pods-Greek Myth Puzzles Powe" */;
 			buildPhases = (
-				3FB67AD3305FB956A5340781DCE69581 /* Headers */,
-				0EAA82E0C359E4A099151908B9D57341 /* Sources */,
-				E9019F8F64F098BDF0AB7973A66D5A73 /* Frameworks */,
-				D35D59F8374E0807AF9390EF1967BC60 /* Resources */,
+				BCF1BADD1C18A59796198C694BDFBA6C /* Headers */,
+				FA37D7B1520CB29F94AFE46199CA8B65 /* Sources */,
+				E22B48E45EC2B83D6B6989949AE02FA9 /* Frameworks */,
+				48ABEE7497C977849D7A6C0182117EA1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AFC8DCEDEFFAC807A0958687707CBB68 /* PBXTargetDependency */,
-				4D161D15067596667F8103760E3BE7E5 /* PBXTargetDependency */,
 			);
 			name = "Pods-Greek Myth Puzzles Powe";
 			productName = Pods_Greek_Myth_Puzzles_Powe;
 			productReference = F6050BED5AAE1AFC359FB97DA25EA40B /* Pods-Greek Myth Puzzles Powe */;
 			productType = "com.apple.product-type.framework";
-		};
-		C1B7E9FCC674E977BE2D38FC2709798C /* AppsFlyerFramework-AppsFlyerLib_Privacy */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 31C5B75477DA38B996AAABD9CAABD949 /* Build configuration list for PBXNativeTarget "AppsFlyerFramework-AppsFlyerLib_Privacy" */;
-			buildPhases = (
-				B151FEBA161223E310D35F045F6672D3 /* Sources */,
-				7253C5E7623172553677CAC4D5021792 /* Frameworks */,
-				49C9D5F323897AEFF2D5EDC8528A8BFB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "AppsFlyerFramework-AppsFlyerLib_Privacy";
-			productName = AppsFlyerLib_Privacy;
-			productReference = DDEAD447247DFA15F1E4DB584614F80C /* AppsFlyerFramework-AppsFlyerLib_Privacy */;
-			productType = "com.apple.product-type.bundle";
 		};
 		DB5BCED510FB2990878B9C8C4125D580 /* Pods-Greek Myth Puzzles PoweTests */ = {
 			isa = PBXNativeTarget;
@@ -427,7 +268,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A884B055D602C152B0ABC3CF88789472 /* PBXTargetDependency */,
+				ACE5D3A086EF8CA20F9807464A755A53 /* PBXTargetDependency */,
 			);
 			name = "Pods-Greek Myth Puzzles PoweTests";
 			productName = Pods_Greek_Myth_Puzzles_PoweTests;
@@ -453,16 +294,13 @@
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			minimizedProjectReferenceProxies = 0;
-			productRefGroup = 5C891B7F65427AF7F6E737061163F79D /* Products */;
+			productRefGroup = D373D5DDD73F63E45B7962DE8D54A6F0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B0B23938B1EBCBAD2419AB6E9D222A0B /* AppsFlyerFramework */,
-				C1B7E9FCC674E977BE2D38FC2709798C /* AppsFlyerFramework-AppsFlyerLib_Privacy */,
 				A215E0277CD80DE0F3724930829DF9E0 /* Pods-Greek Myth Puzzles Powe */,
 				DB5BCED510FB2990878B9C8C4125D580 /* Pods-Greek Myth Puzzles PoweTests */,
 				91E04F3C129FCF8A4732BB0722E2BA05 /* Pods-Greek Myth Puzzles PoweUITests */,
-				1BDAC84B71249E18F76EB138FA010375 /* SwiftShield */,
 			);
 		};
 /* End PBXProject section */
@@ -475,11 +313,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		49C9D5F323897AEFF2D5EDC8528A8BFB /* Resources */ = {
+		48ABEE7497C977849D7A6C0182117EA1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A071699DE0980B45AFC13C31D50C1D8 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,44 +327,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D35D59F8374E0807AF9390EF1967BC60 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		DB7C100E6D7A5CF954757DB8962D9B72 /* [CP] Copy XCFrameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/AppsFlyerFramework/AppsFlyerFramework-xcframeworks-input-files.xcfilelist",
-			);
-			name = "[CP] Copy XCFrameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/AppsFlyerFramework/AppsFlyerFramework-xcframeworks-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/AppsFlyerFramework/AppsFlyerFramework-xcframeworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		0EAA82E0C359E4A099151908B9D57341 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F0D2698441714A59767F7A9632C41D39 /* Pods-Greek Myth Puzzles Powe-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1839037C261029C92DF06808D6B18170 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -544,86 +346,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B151FEBA161223E310D35F045F6672D3 /* Sources */ = {
+		FA37D7B1520CB29F94AFE46199CA8B65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F886895492B6E6E045450C51B3BA92FD /* Pods-Greek Myth Puzzles Powe-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		26907D747A4CCBA8E813F05140A169FE /* PBXTargetDependency */ = {
+		596D78B20AE03B4DAB28E3E229EAC1BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Greek Myth Puzzles Powe";
 			target = A215E0277CD80DE0F3724930829DF9E0 /* Pods-Greek Myth Puzzles Powe */;
-			targetProxy = AC860A3B116C2C4C7251589498DF0B71 /* PBXContainerItemProxy */;
+			targetProxy = B26821292E132D650868267C0AB85864 /* PBXContainerItemProxy */;
 		};
-		4D161D15067596667F8103760E3BE7E5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftShield;
-			target = 1BDAC84B71249E18F76EB138FA010375 /* SwiftShield */;
-			targetProxy = 1583280409689CED46B9EE3AD7551918 /* PBXContainerItemProxy */;
-		};
-		A122619855AC217AA0D1A8468D34D5DF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "AppsFlyerFramework-AppsFlyerLib_Privacy";
-			target = C1B7E9FCC674E977BE2D38FC2709798C /* AppsFlyerFramework-AppsFlyerLib_Privacy */;
-			targetProxy = 9BA241D0E1ABDE4A230D1D3F6B878367 /* PBXContainerItemProxy */;
-		};
-		A884B055D602C152B0ABC3CF88789472 /* PBXTargetDependency */ = {
+		ACE5D3A086EF8CA20F9807464A755A53 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Greek Myth Puzzles Powe";
 			target = A215E0277CD80DE0F3724930829DF9E0 /* Pods-Greek Myth Puzzles Powe */;
-			targetProxy = C300712C4A3E301845B27F2619A73ED9 /* PBXContainerItemProxy */;
-		};
-		AFC8DCEDEFFAC807A0958687707CBB68 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = AppsFlyerFramework;
-			target = B0B23938B1EBCBAD2419AB6E9D222A0B /* AppsFlyerFramework */;
-			targetProxy = AABC0982843F535E4A21B4798904A2D2 /* PBXContainerItemProxy */;
+			targetProxy = 5E55A3B7DEBEC81693D1517EA272D691 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2B4B3592928E60D68F3429ED04CA933C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E824973250B30BBF280A428CC9A844D /* AppsFlyerFramework.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AppsFlyerFramework";
-				IBSC_MODULE = AppsFlyerFramework;
-				INFOPLIST_FILE = "Target Support Files/AppsFlyerFramework/ResourceBundle-AppsFlyerLib_Privacy-AppsFlyerFramework-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				PRODUCT_NAME = AppsFlyerLib_Privacy;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		506C6E037792F14FD0EF187BA0F6B75F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E824973250B30BBF280A428CC9A844D /* AppsFlyerFramework.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
 		5A10DD59BA498D63709CF58696351E29 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6CFAC2EE89595DB16F8D0D565D928A2 /* Pods-Greek Myth Puzzles PoweUITests.release.xcconfig */;
+			baseConfigurationReference = 9D0C81082B6D5F45982AB91F5C6863AA /* Pods-Greek Myth Puzzles PoweUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -659,21 +410,43 @@
 			};
 			name = Release;
 		};
-		63919CB3D677A8A7BBE58B8DC2076D32 /* Debug */ = {
+		5FE0BD0394A452154B3D404C6BB03A13 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F99518E8698473FE0EC96B057A4B0E13 /* SwiftShield.debug.xcconfig */;
+			baseConfigurationReference = 276964D0EC23BE60AFE19BED91065258 /* Pods-Greek Myth Puzzles Powe.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Greek Myth Puzzles Powe/Pods-Greek Myth Puzzles Powe-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Greek Myth Puzzles Powe/Pods-Greek Myth Puzzles Powe.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		6A5C026ED62BBFE3380CD257EEFAEB20 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -741,26 +514,9 @@
 			};
 			name = Debug;
 		};
-		9C6B30D6BE45BE19C25D9E031354F26C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 578A2605B8BA747CA8F01F6E8B61BB13 /* AppsFlyerFramework.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AppsFlyerFramework";
-				IBSC_MODULE = AppsFlyerFramework;
-				INFOPLIST_FILE = "Target Support Files/AppsFlyerFramework/ResourceBundle-AppsFlyerLib_Privacy-AppsFlyerFramework-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				PRODUCT_NAME = AppsFlyerLib_Privacy;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 		ABC34FE3D7D8E541D3239DE9C86EB91E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFDC04794A45E18A534887584B65899C /* Pods-Greek Myth Puzzles PoweTests.debug.xcconfig */;
+			baseConfigurationReference = 0DB55E89D4CE14216F2B756F8849284A /* Pods-Greek Myth Puzzles PoweTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -797,7 +553,7 @@
 		};
 		B2FE1178B3EFDD82E4ECE5A4EA25A89A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01426AF3D4A415E9848A7B65DC56B940 /* Pods-Greek Myth Puzzles PoweTests.release.xcconfig */;
+			baseConfigurationReference = 1F7C30CC07232536668CAB3EBD82D67B /* Pods-Greek Myth Puzzles PoweTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -833,9 +589,9 @@
 			};
 			name = Release;
 		};
-		C412FF752526A69E7FDF7B1898885C06 /* Debug */ = {
+		CB73DEB9D660F3B381CDA601CBD8C0DA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A7E26C6B377A8A866B2BB764AC4B504F /* Pods-Greek Myth Puzzles Powe.debug.xcconfig */;
+			baseConfigurationReference = 9C247B2D2C297ADF3BAD7BDFCCCC946C /* Pods-Greek Myth Puzzles Powe.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -870,26 +626,9 @@
 			};
 			name = Debug;
 		};
-		CED9ED6AC8E6C26DF78ADF7589AB378D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DFD8CBC36393A992E27FA310876798B9 /* SwiftShield.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		E4EE2E7109B22AF230E2121DF6680B7D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A726EBBA9D9DD6CA8EF505D17D98719 /* Pods-Greek Myth Puzzles PoweUITests.debug.xcconfig */;
+			baseConfigurationReference = 08B841AD43F533F5C39B50D7002BFE81 /* Pods-Greek Myth Puzzles PoweUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -986,74 +725,9 @@
 			};
 			name = Release;
 		};
-		EF5F94E64F33B79CF0BD87AFE1013406 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 07B448C1EF3FCC91E7201303C317A91B /* Pods-Greek Myth Puzzles Powe.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Greek Myth Puzzles Powe/Pods-Greek Myth Puzzles Powe-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Greek Myth Puzzles Powe/Pods-Greek Myth Puzzles Powe.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		FC1DF3EE50011D4C5159689FE8BB2778 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 578A2605B8BA747CA8F01F6E8B61BB13 /* AppsFlyerFramework.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		31C5B75477DA38B996AAABD9CAABD949 /* Build configuration list for PBXNativeTarget "AppsFlyerFramework-AppsFlyerLib_Privacy" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2B4B3592928E60D68F3429ED04CA933C /* Debug */,
-				9C6B30D6BE45BE19C25D9E031354F26C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1063,38 +737,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		683B7E2771DF90F81CA5A1262E7EA4DD /* Build configuration list for PBXAggregateTarget "SwiftShield" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				63919CB3D677A8A7BBE58B8DC2076D32 /* Debug */,
-				CED9ED6AC8E6C26DF78ADF7589AB378D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		71B9A5BD1FADAE479D403809E582EC07 /* Build configuration list for PBXAggregateTarget "AppsFlyerFramework" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				506C6E037792F14FD0EF187BA0F6B75F /* Debug */,
-				FC1DF3EE50011D4C5159689FE8BB2778 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ADC6097419677BADD9F4594C0D91B47A /* Build configuration list for PBXNativeTarget "Pods-Greek Myth Puzzles Powe" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C412FF752526A69E7FDF7B1898885C06 /* Debug */,
-				EF5F94E64F33B79CF0BD87AFE1013406 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		B2260C9936B8D8165E1F190739F5B969 /* Build configuration list for PBXNativeTarget "Pods-Greek Myth Puzzles PoweTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ABC34FE3D7D8E541D3239DE9C86EB91E /* Debug */,
 				B2FE1178B3EFDD82E4ECE5A4EA25A89A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8EF8F141B303F0C59982BE3CB005CD3 /* Build configuration list for PBXNativeTarget "Pods-Greek Myth Puzzles Powe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB73DEB9D660F3B381CDA601CBD8C0DA /* Debug */,
+				5FE0BD0394A452154B3D404C6BB03A13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

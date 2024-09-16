@@ -5,18 +5,17 @@ use_modular_headers!
 target 'Greek Myth Puzzles Powe' do
   use_frameworks!
 
-  pod 'AppsFlyerFramework'
-  pod 'SwiftShield'
+  # Здесь были зависимости, которые удалены
 
   target 'Greek Myth Puzzles PoweTests' do
     inherit! :search_paths
+    # Должны остаться только настройки для тестов, если они вам нужны
   end
 
   target 'Greek Myth Puzzles PoweUITests' do
     inherit! :search_paths
+    # Должны остаться только настройки для UI-тестов, если они вам нужны
   end
-  
-
 end
 
 post_install do |installer|

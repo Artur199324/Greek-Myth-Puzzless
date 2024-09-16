@@ -4,16 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AppsFlyerFramework-AppsFlyerLib_Privacy.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>AppsFlyerFramework.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Greek Myth Puzzles Powe.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -25,11 +15,6 @@
 			<false/>
 		</dict>
 		<key>Pods-Greek Myth Puzzles PoweUITests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SwiftShield.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

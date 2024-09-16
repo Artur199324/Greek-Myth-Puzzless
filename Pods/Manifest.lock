@@ -1,22 +1,3 @@
-PODS:
-  - AppsFlyerFramework (6.15.2):
-    - AppsFlyerFramework/Main (= 6.15.2)
-  - AppsFlyerFramework/Main (6.15.2)
-  - SwiftShield (3.5.1)
-
-DEPENDENCIES:
-  - AppsFlyerFramework
-  - SwiftShield
-
-SPEC REPOS:
-  trunk:
-    - AppsFlyerFramework
-    - SwiftShield
-
-SPEC CHECKSUMS:
-  AppsFlyerFramework: 3c6c50b7b3f0f37f648a5b23114940e0766e65e8
-  SwiftShield: b1f8b1adaa82e5b015ce8d1d4eead89526cbff49
-
-PODFILE CHECKSUM: 3fd317830a0ab78d291677471d4a1ab05794c526
+PODFILE CHECKSUM: 040cb204b7da0a3088475a1b70096718a365570e
 
 COCOAPODS: 1.15.2
