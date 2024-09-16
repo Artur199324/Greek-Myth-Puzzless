@@ -8,7 +8,7 @@ workflows:
     environment:
       ios_signing:
         distribution_type: app_store
-        bundle_id:
+        bundle_identifier:
           - com.greekmythpuzzles
           - com.greekmythpuzzles.OneSignalNotificationServiceExtension
       vars:
