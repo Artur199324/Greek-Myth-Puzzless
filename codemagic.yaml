@@ -42,7 +42,7 @@ workflows:
             clean archive
       - name: Run SwiftShield
         script: |
-          mint run swiftshield \
+          mint run swiftshield obfuscate \
             --project "$XCODE_WORKSPACE" \
             --scheme "$XCODE_SCHEME" \
             --archive "$CM_BUILD_DIR/build/$XCODE_SCHEME.xcarchive" \
