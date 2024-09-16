@@ -5,7 +5,6 @@ use_modular_headers!
 target 'Greek Myth Puzzles Powe' do
   use_frameworks!
 
-  pod 'OneSignalXCFramework', '>= 3.0.0', '< 4.0'
   pod 'AppsFlyerFramework'
   pod 'SwiftShield'
 
@@ -17,10 +16,7 @@ target 'Greek Myth Puzzles Powe' do
     inherit! :search_paths
   end
   
-  target 'OneSignalNotificationServiceExtension' do
-    use_frameworks!
-    pod 'OneSignalXCFramework', '>= 3.0.0', '< 4.0'
-  end
+
 end
 
 post_install do |installer|

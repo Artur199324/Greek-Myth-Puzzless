@@ -1,7 +1,6 @@
 import SwiftUI
 import Foundation
 import UIKit
-import OneSignal
 import AppsFlyerLib
 import AppTrackingTransparency
 import AdSupport
@@ -47,13 +46,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, AppsFlyerLibDelegate, DeepLi
         Settings.shared.isAutoLogAppEventsEnabled = true
         Settings.shared.isAdvertiserIDCollectionEnabled = true
 
-        // OneSignal конфигурация
-        OneSignal.setLogLevel(.LL_VERBOSE, visualLevel: .LL_NONE)
-        OneSignal.initWithLaunchOptions(launchOptions)
-        OneSignal.setAppId("6b5051a6-8bf2-435d-9946-b3b2c39ccc7c")
-        OneSignal.promptForPushNotifications(userResponse: { accepted in
-            print("User accepted notification: \(accepted)")
-        })
+    
 
         // AppsFlyer конфигурация
         AppsFlyerLib.shared().appsFlyerDevKey = "xst98jJKqjFmAFtJdcvJvK" // Укажите ваш Dev Key
