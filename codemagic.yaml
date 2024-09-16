@@ -28,7 +28,8 @@ workflows:
           agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
       - name: Obfuscate Swift code
         script: |
-          # Obfuscation script for Swift code
+          # Simple example of obfuscating Swift code
+          # Replace occurrences of function names or variables with obfuscated names
           find . -name "*.swift" -print0 | xargs -0 sed -i '' -e 's/\b(\w+)\b/$1_obf/g'
       - name: Build project
         script: |
@@ -42,7 +43,7 @@ workflows:
         script: |
           xcodebuild -exportArchive \
             -archivePath "$CM_BUILD_DIR/GreekMythPuzzlesPowe.xcarchive" \
-            -exportOptionsPlist "$CM_BUILD_DIR/exportOptions.plist" \
+            -exportOptionsPlist /dev/null \
             -exportPath "$CM_BUILD_DIR/build"
     artifacts:
       - build/*.ipa
