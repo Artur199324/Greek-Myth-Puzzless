@@ -1,35 +1,18 @@
 import SwiftUI
 
 struct PuzzleGameLevel4View: View {
-    @State private var image1Position: CGPoint = .zero
-    @State private var image2Position: CGPoint = .zero
-    @State private var image3Position: CGPoint = .zero
-    @State private var image4Position: CGPoint = .zero
-    @State private var image5Position: CGPoint = .zero
-    @State private var image6Position: CGPoint = .zero
-    @State private var image7Position: CGPoint = .zero
-    @State private var image8Position: CGPoint = .zero
-    @State private var image9Position: CGPoint = .zero
-
+    @State private var imagePositions: [CGPoint] = Array(repeating: .zero, count: 9)
     @State private var isFullScreenPresented = false
     @State private var restartViewID = UUID()
 
-    @State private var img1 = false
-    @State private var img2 = false
-    @State private var img3 = false
-    @State private var img4 = false
-    @State private var img5 = false
-    @State private var img6 = false
-    @State private var img7 = false
-    @State private var img8 = false
-    @State private var img9 = false
+    @State private var imgStates: [Bool] = Array(repeating: false, count: 9)
     @State private var indexImg = 0
-    
+
     @State private var timeRemaining = 30
     @State private var timerRunning = false
     @State private var timer: Timer?
     @State private var count = 0
-    
+
     @State private var frames: [CGRect] = Array(repeating: .zero, count: 9)
     @State private var currentPartIndex = 0
     let puzzleParts = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9"]
@@ -38,7 +21,6 @@ struct PuzzleGameLevel4View: View {
     @Environment(\.dismiss) var dismiss
     @State private var currentOffset: CGSize = .zero
     @State private var currentFrame: CGRect = .zero
-    @State private var movingFrame: CGRect = .zero
 
     @State private var savedBak: Int = {
         let initialValue = 1
@@ -48,7 +30,7 @@ struct PuzzleGameLevel4View: View {
         }
         return UserDefaults.standard.integer(forKey: key)
     }()
-    
+
     @State private var savedValue: Int = {
         let initialValue = 500
         let key = "myIntKey"
@@ -59,393 +41,274 @@ struct PuzzleGameLevel4View: View {
     }()
 
     var body: some View {
-        ZStack {
-            Group {
-                if savedBak == 1 {
-                    Image("background 1")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 2 {
-                    Image("background 2")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 3 {
-                    Image("background 3")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 4 {
-                    Image("background 4")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else {
-                    Color.black
-                        .ignoresSafeArea()
+        GeometryReader { geometry in
+            ZStack {
+                // Фоновое изображение в зависимости от savedBak
+                Group {
+                    if savedBak == 1 {
+                        Image("background 1")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 2 {
+                        Image("background 2")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 3 {
+                        Image("background 3")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 4 {
+                        Image("background 4")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else {
+                        Color.black
+                            .ignoresSafeArea()
+                    }
                 }
-            }
-            .onAppear {
-                updateAllFrames()
-            }
-            
-            GeometryReader { globalGeometry in
+                .onAppear {
+                    updateAllFrames()
+                }
+
                 VStack {
+                    // Верхняя панель с кнопкой и счетчиком
                     HStack {
                         Button {
                             self.dismiss()
                         } label: {
                             Image("Group 3")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width * 0.08)
                         }
-                        .padding(.leading, 20)
-                        
+                        .padding(.leading, geometry.size.width * 0.05)
+
                         Text("Level #4")
                             .foregroundColor(.white)
-                            .font(.title.bold())
-                        
+                            .font(.system(size: geometry.size.width * 0.06, weight: .bold))
+
                         Spacer()
-                        
+
                         ZStack {
                             Image("balance")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width * 0.15)
                             Text("\(savedValue)")
                                 .foregroundColor(.white)
-                                .padding(.leading, 15)
+                                .padding(.leading, geometry.size.width * 0.02)
                         }
-                        .padding(.trailing, 30)
+                        .padding(.trailing, geometry.size.width * 0.05)
                     }
-                    .padding(.top, 50)
-                    
+                    .padding(.top, geometry.size.height * 0.05)
+
                     HStack {
                         Image("tabler-icon-clock-2")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: geometry.size.width * 0.05)
                         Text("\(timeRemaining)")
                             .foregroundColor(.white)
-                            .font(.title.bold())
+                            .font(.system(size: geometry.size.width * 0.05, weight: .bold))
                     }
-                    .padding(.top, 20)
-                    
-                    ZStack {
-                        Color.clear
-                            .coordinateSpace(name: "global")
-                        
-                        VStack {
-                            // Первая строка изображений
-                            HStack {
-                                Image(!img1 ? "blue_square" : puzzleParts[0])
-                                    .resizable()
-                                    .frame(width: 180, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 0
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image1Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image1Position = newValue.origin
-                                            }
-                                    })
-                                
-                                Image(!img2 ? "blue_square" : puzzleParts[1])
-                                    .resizable()
-                                    .frame(width: 80, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 1
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image2Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image2Position = newValue.origin
-                                            }
-                                    })
-                                
-                                Image(!img3 ? "blue_square" : puzzleParts[2])
-                                    .resizable()
-                                    .frame(width: 80, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 2
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image3Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image3Position = newValue.origin
-                                            }
-                                    })
-                            }
-                            
-                            // Вторая строка изображений
-                            HStack {
-                                Image(!img4 ? "blue_square" : puzzleParts[3])
-                                    .resizable()
-                                    .frame(width: 180, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 3
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image4Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image4Position = newValue.origin
-                                            }
-                                    })
-                                
-                                Image(!img5 ? "blue_square" : puzzleParts[4])
-                                    .resizable()
-                                    .frame(width: 80, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 4
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image5Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image5Position = newValue.origin
-                                            }
-                                    })
-                                
-                                Image(!img6 ? "blue_square" : puzzleParts[5])
-                                    .resizable()
-                                    .frame(width: 80, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 5
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image6Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image6Position = newValue.origin
-                                            }
-                                    })
-                            }
-                            
-                            // Третья строка изображений
-                            HStack {
-                                Image(!img7 ? "blue_square" : puzzleParts[6])
-                                    .resizable()
-                                    .frame(width: 180, height: 180)
-                                    .background(GeometryReader { geometry in
-                                        let index = 6
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image7Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image7Position = newValue.origin
-                                            }
-                                    })
-                                
-                                
-                                VStack{
-                                    Image(!img8 ? "blue_square" : puzzleParts[7])
-                                        .resizable()
-                                        .frame(width: 180, height: 80)
-                                        .background(GeometryReader { geometry in
-                                            let index = 7
-                                            Color.clear
-                                                .onAppear {
-                                                    self.frames[index] = geometry.frame(in: .named("global"))
-                                                    self.image8Position = self.frames[index].origin
-                                                }
-                                                .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                    self.frames[index] = newValue
-                                                    self.image8Position = newValue.origin
-                                                }
-                                        })
-                                    
-                                    Image(!img9 ? "blue_square" : puzzleParts[8])
-                                        .resizable()
-                                        .frame(width: 180, height: 80)
-                                        .background(GeometryReader { geometry in
-                                            let index = 8
-                                            Color.clear
-                                                .onAppear {
-                                                    self.frames[index] = geometry.frame(in: .named("global"))
-                                                    self.image9Position = self.frames[index].origin
-                                                }
-                                                .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                    self.frames[index] = newValue
-                                                    self.image9Position = newValue.origin
-                                                }
-                                        })
-                                    
-                                }
+                    .padding(.top, geometry.size.height * 0.02)
+
+                    // Сетка изображений
+                    VStack(spacing: geometry.size.height * 0.02) {
+                        HStack(spacing: geometry.size.width * 0.02) {
+                            puzzleTargetView(index: 0, width: geometry.size.width * 0.3, height: geometry.size.width * 0.15, geometry: geometry)
+                            puzzleTargetView(index: 1, width: geometry.size.width * 0.15, height: geometry.size.width * 0.15, geometry: geometry)
+                            puzzleTargetView(index: 2, width: geometry.size.width * 0.15, height: geometry.size.width * 0.15, geometry: geometry)
+                        }
+
+                        HStack(spacing: geometry.size.width * 0.02) {
+                            puzzleTargetView(index: 3, width: geometry.size.width * 0.3, height: geometry.size.width * 0.15, geometry: geometry)
+                            puzzleTargetView(index: 4, width: geometry.size.width * 0.15, height: geometry.size.width * 0.15, geometry: geometry)
+                            puzzleTargetView(index: 5, width: geometry.size.width * 0.15, height: geometry.size.width * 0.15, geometry: geometry)
+                        }
+
+                        HStack(spacing: geometry.size.width * 0.02) {
+                            puzzleTargetView(index: 6, width: geometry.size.width * 0.3, height: geometry.size.width * 0.3, geometry: geometry)
+                            VStack(spacing: geometry.size.height * 0.02) {
+                                puzzleTargetView(index: 7, width: geometry.size.width * 0.3, height: geometry.size.width * 0.15, geometry: geometry)
+                                puzzleTargetView(index: 8, width: geometry.size.width * 0.3, height: geometry.size.width * 0.15, geometry: geometry)
                             }
                         }
-                        .padding(.top, 10)
                     }
-                    
+                    .padding(.top, geometry.size.height * 0.04)
+
                     Text("Next:")
-                        .font(.title.bold())
+                        .font(.system(size: geometry.size.width * 0.06, weight: .bold))
                         .foregroundColor(.white)
-                        .padding(.top,0)
-                        
-                    
+                        .padding(.top, geometry.size.height * 0.02)
+
+                    // Текущее изображение для перетаскивания
                     if currentPartIndex < puzzleParts.count {
-                        GeometryReader { geometry in
+                        GeometryReader { geo in
                             Image(puzzleParts[currentPartIndex])
                                 .resizable()
-                                .frame(width: 100, height: 100)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width * 0.2)
                                 .offset(currentOffset)
-                                .border(Color.orange, width: 2)
-                                .background(
-                                    GeometryReader { innerGeometry in
-                                        Color.clear
-                                            .onAppear {
-                                                self.currentFrame = innerGeometry.frame(in: .named("global"))
-                                            }
-                                            .onChange(of: currentOffset) { _, _ in
-                                                self.movingFrame = CGRect(
-                                                    origin: CGPoint(
-                                                        x: innerGeometry.frame(in: .named("global")).minX + currentOffset.width,
-                                                        y: innerGeometry.frame(in: .named("global")).minY + currentOffset.height
-                                                    ),
-                                                    size: CGSize(width: 80, height: 80)
-                                                )
-                                            }
-                                    }
-                                )
                                 .gesture(
                                     DragGesture()
                                         .onChanged { value in
-                                            currentOffset = CGSize(width: value.translation.width + positions[currentPartIndex].width,
-                                                                   height: value.translation.height + positions[currentPartIndex].height)
+                                            currentOffset = CGSize(
+                                                width: value.translation.width + positions[currentPartIndex].width,
+                                                height: value.translation.height + positions[currentPartIndex].height
+                                            )
                                         }
                                         .onEnded { value in
                                             positions[currentPartIndex].width += value.translation.width
                                             positions[currentPartIndex].height += value.translation.height
                                             currentOffset = positions[currentPartIndex]
-                                            
-                                            self.currentFrame = self.movingFrame
-                                            
-                                            let tolerance: CGFloat = 10
-                                            let imagePositions = [
-                                                image1Position, image2Position, image3Position,
-                                                image4Position, image5Position, image6Position,
-                                                image7Position, image8Position, image9Position
-                                            ]
-                                            
-                                            print("Проверка пересечений с текущим индексом: \(currentPartIndex)")
-                                            
-                                            for (index, position) in imagePositions.enumerated() {
-                                                print("Проверка пересечения: текущий индекс \(currentPartIndex), проверяемый индекс \(index)")
-                                                
-                                                let targetFrame = CGRect(origin: position, size: CGSize(width: 80, height: 80))
-                                                
+
+                                            self.currentFrame = CGRect(
+                                                origin: CGPoint(
+                                                    x: geo.frame(in: .global).minX + currentOffset.width,
+                                                    y: geo.frame(in: .global).minY + currentOffset.height
+                                                ),
+                                                size: geo.size
+                                            )
+
+                                            let tolerance: CGFloat = 20
+
+                                            // Проверка пересечения
+                                            for index in 0..<frames.count {
+                                                let targetFrame = frames[index]
+
                                                 if checkIntersectionWithTolerance(self.currentFrame, targetFrame, tolerance: tolerance) {
-                                                    print("Пересечение найдено для индекса: \(index)")
                                                     if currentPartIndex == index {
-                                                        switch index {
-                                                        case 0: img1.toggle()
-                                                        case 1: img2.toggle()
-                                                        case 2: img3.toggle()
-                                                        case 3: img4.toggle()
-                                                        case 4: img5.toggle()
-                                                        case 5: img6.toggle()
-                                                        case 6: img7.toggle()
-                                                        case 7: img8.toggle()
-                                                        case 8: img9.toggle()
-                                                        default: break
-                                                        }
+                                                        imgStates[index] = true
                                                         count += 1
-                                                        currentPartIndex = (currentPartIndex + 1) % puzzleParts.count
-                                                        
-                                                        if count == 9 {
+
+                                                        if count == puzzleParts.count {
                                                             stopTimer()
                                                         }
+
+                                                        // Сбрасываем позицию текущего изображения
+                                                        positions[currentPartIndex] = .zero
+                                                        currentOffset = .zero
+
+                                                        // Обозначаем текущее изображение как размещённое
+                                                        placedParts[currentPartIndex] = true
+                                                        // Переключаем на следующее изображение
+                                                        currentPartIndex += 1
+
+                                                        // Проверяем, чтобы currentPartIndex не выходил за пределы массива
+                                                        if currentPartIndex >= puzzleParts.count {
+                                                            currentPartIndex = puzzleParts.count
+                                                        }
+
+                                                        break
                                                     }
-                                                    
-                                                    positions[currentPartIndex] = .zero
-                                                    currentOffset = .zero
-                                                    placedParts[currentPartIndex] = true
-                                                    
-                                                    break
                                                 }
                                             }
-                                            
-                                            if !placedParts[currentPartIndex] {
-                                                positions[currentPartIndex] = currentOffset
+
+                                            if currentPartIndex < placedParts.count {
+                                                if !placedParts[currentPartIndex] {
+                                                    positions[currentPartIndex] = currentOffset
+                                                }
                                             }
                                         }
                                 )
-                                .onAppear {
-                                    updateAllFrames()
-                                    let tolerance: CGFloat = 10
-                                    for (index, frame) in frames.enumerated() {
-                                        if checkIntersectionWithTolerance(currentFrame, frame, tolerance: tolerance) {
-                                            print("Пересечение при инициализации с объектом \(index)")
-                                        }
-                                    }
-                                }
                         }
-                        .frame(width: 100, height: 100)
-                        
+                        .frame(width: geometry.size.width * 0.2)
+
+                        Spacer()
+                    } else {
                         Spacer()
                     }
-                    
                 }
-            }
-            
-            if count == 9 {
-                VStack {
+
+                // Экран победы
+                if count == puzzleParts.count {
                     ZStack {
-                        Image("win")
-                        Button {
-                            increaseAndSaveValue(by: 150)
-                            self.dismiss()
-                        } label: {
-                            Image("home")
+                        Color("bacc")
+                            .ignoresSafeArea()
+
+                        VStack(spacing: geometry.size.height * 0.05) {
+                            Image("win")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geometry.size.width * 0.9)
+
+                            Button {
+                                increaseAndSaveValue(by: 150)
+                                self.dismiss()
+                            } label: {
+                                Image("home")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: geometry.size.width * 0.25)
+                            }
                         }
-                        .padding(.top, 190)
                     }
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .ignoresSafeArea()
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color("bacc").ignoresSafeArea())
-            }
-            
-            if timeRemaining == 0 {
-                VStack {
+
+                // Экран проигрыша
+                if timeRemaining == 0 {
                     ZStack {
-                        Image("over")
-                        Button {
-                            self.dismiss()
-                        } label: {
-                            Image("home")
+                        Color("bacc")
+                            .ignoresSafeArea()
+
+                        VStack(spacing: geometry.size.height * 0.05) {
+                            Image("over")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geometry.size.width * 0.9)
+
+                            Button {
+                                self.dismiss()
+                            } label: {
+                                Image("home")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: geometry.size.width * 0.25)
+                            }
                         }
-                        .padding(.top, 160)
                     }
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .ignoresSafeArea()
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color("bacc").ignoresSafeArea())
             }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .onAppear {
-            startTimer()
+            .onAppear {
+                startTimer()
+            }
         }
     }
 
+    // Вспомогательная функция для отображения цели пазла
+    @ViewBuilder
+    func puzzleTargetView(index: Int, width: CGFloat, height: CGFloat, geometry: GeometryProxy) -> some View {
+        Image(!imgStates[index] ? "blue_square" : puzzleParts[index])
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: width, height: height)
+            .background(
+                GeometryReader { geo in
+                    Color.clear
+                        .onAppear {
+                            self.frames[index] = geo.frame(in: .global)
+                            self.imagePositions[index] = geo.frame(in: .global).origin
+                        }
+                        .onChange(of: geo.frame(in: .global)) { _, newValue in
+                            self.frames[index] = newValue
+                            self.imagePositions[index] = newValue.origin
+                        }
+                }
+            )
+    }
+
     func updateAllFrames() {
-        for (index, position) in [
-            image1Position, image2Position, image3Position,
-            image4Position, image5Position, image6Position,
-            image7Position, image8Position, image9Position
-        ].enumerated() {
-            self.frames[index] = CGRect(origin: position, size: CGSize(width: 80, height: 80))
+        for index in 0..<9 {
+            self.frames[index] = CGRect(origin: self.imagePositions[index], size: CGSize(width: 80, height: 80))
         }
     }
 
@@ -453,7 +316,7 @@ struct PuzzleGameLevel4View: View {
         let expandedRect1 = rect1.insetBy(dx: -tolerance, dy: -tolerance)
         return expandedRect1.intersects(rect2)
     }
-    
+
     func startTimer() {
         guard !timerRunning else { return }
         timerRunning = true
@@ -473,7 +336,7 @@ struct PuzzleGameLevel4View: View {
         timer = nil
         timerRunning = false
     }
-    
+
     func increaseAndSaveValue(by amount: Int) {
         savedValue += amount
         UserDefaults.standard.set(savedValue, forKey: "myIntKey")

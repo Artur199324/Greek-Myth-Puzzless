@@ -65,293 +65,103 @@ struct PuzzleGameLevel5View: View {
     }()
 
     var body: some View {
-        ZStack {
-            Group {
-                if savedBak == 1 {
-                    Image("background 1")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 2 {
-                    Image("background 2")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 3 {
-                    Image("background 3")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 4 {
-                    Image("background 4")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else {
-                    Color.black
-                        .ignoresSafeArea()
+        GeometryReader { geometry in
+            ZStack {
+                Group {
+                    if savedBak == 1 {
+                        Image("background 1")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 2 {
+                        Image("background 2")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 3 {
+                        Image("background 3")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 4 {
+                        Image("background 4")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else {
+                        Color.black
+                            .ignoresSafeArea()
+                    }
                 }
-            }
-            .onAppear {
-                updateAllFrames()
-            }
-            
-            GeometryReader { globalGeometry in
+                .onAppear {
+                    updateAllFrames()
+                }
+                
                 VStack {
                     HStack {
                         Button {
                             self.dismiss()
                         } label: {
                             Image("Group 3")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width * 0.08)
                         }
-                        .padding(.leading, 20)
+                        .padding(.leading, geometry.size.width * 0.05)
                         
                         Text("Level #5")
                             .foregroundColor(.white)
-                            .font(.title.bold())
+                            .font(.system(size: geometry.size.width * 0.07, weight: .bold))
                         
                         Spacer()
                         
                         ZStack {
                             Image("balance")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width * 0.15)
                             Text("\(savedValue)")
                                 .foregroundColor(.white)
-                                .padding(.leading, 15)
+                                .padding(.leading, geometry.size.width * 0.02)
                         }
-                        .padding(.trailing, 30)
+                        .padding(.trailing, geometry.size.width * 0.05)
                     }
-                    .padding(.top, 50)
+                    .padding(.top, geometry.size.height * 0.05)
                     
                     HStack {
                         Image("tabler-icon-clock-2")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: geometry.size.width * 0.08)
                         Text("\(timeRemaining)")
                             .foregroundColor(.white)
-                            .font(.title.bold())
+                            .font(.system(size: geometry.size.width * 0.07, weight: .bold))
                     }
-                    .padding(.top, 20)
+                    .padding(.top, geometry.size.height * 0.02)
                     
                     ZStack {
                         Color.clear
                             .coordinateSpace(name: "global")
                         
-                        VStack {
-                            // Первая строка изображений
-                            HStack {
-                                Image(!img1 ? "blue_square" : puzzleParts[0])
-                                    .resizable()
-                                    .frame(width: 180, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 0
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image1Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image1Position = newValue.origin
-                                            }
-                                    })
-                                
-                                Image(!img2 ? "blue_square" : puzzleParts[1])
-                                    .resizable()
-                                    .frame(width: 80, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 1
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image2Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image2Position = newValue.origin
-                                            }
-                                    })
-                                
-                                Image(!img3 ? "blue_square" : puzzleParts[2])
-                                    .resizable()
-                                    .frame(width: 80, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 2
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image3Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image3Position = newValue.origin
-                                            }
-                                    })
-                            }
-                            
-                            // Вторая строка изображений
-                            HStack {
-                                Image(!img4 ? "blue_square" : puzzleParts[3])
-                                    .resizable()
-                                    .frame(width: 180, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 3
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image4Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image4Position = newValue.origin
-                                            }
-                                    })
-                                
-                                Image(!img5 ? "blue_square" : puzzleParts[4])
-                                    .resizable()
-                                    .frame(width: 80, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 4
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image5Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image5Position = newValue.origin
-                                            }
-                                    })
-                                
-                                Image(!img6 ? "blue_square" : puzzleParts[5])
-                                    .resizable()
-                                    .frame(width: 80, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 5
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image6Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image6Position = newValue.origin
-                                            }
-                                    })
-                            }
-                            
-                            // Третья строка изображений
-                            HStack {
-                                Image(!img7 ? "blue_square" : puzzleParts[6])
-                                    .resizable()
-                                    .frame(width: 80, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 6
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image7Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image7Position = newValue.origin
-                                            }
-                                    })
-                                
-                                Image(!img8 ? "blue_square" : puzzleParts[7])
-                                    .resizable()
-                                    .frame(width: 80, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 7
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image8Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image8Position = newValue.origin
-                                            }
-                                    })
-                                
-                                Image(!img9 ? "blue_square" : puzzleParts[8])
-                                    .resizable()
-                                    .frame(width: 180, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 8
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image9Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image9Position = newValue.origin
-                                            }
-                                    })
-                            }
-                            
-                            // Четвертая строка изображений
-                            HStack {
-                                Image(!img10 ? "blue_square" : puzzleParts[9])
-                                    .resizable()
-                                    .frame(width: 80, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 9
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image10Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image10Position = newValue.origin
-                                            }
-                                    })
-                                
-                                Image(!img11 ? "blue_square" : puzzleParts[10])
-                                    .resizable()
-                                    .frame(width: 80, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 10
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image11Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image11Position = newValue.origin
-                                            }
-                                    })
-                                
-                                Image(!img12 ? "blue_square" : puzzleParts[11])
-                                    .resizable()
-                                    .frame(width: 180, height: 80)
-                                    .background(GeometryReader { geometry in
-                                        let index = 11
-                                        Color.clear
-                                            .onAppear {
-                                                self.frames[index] = geometry.frame(in: .named("global"))
-                                                self.image12Position = self.frames[index].origin
-                                            }
-                                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
-                                                self.frames[index] = newValue
-                                                self.image12Position = newValue.origin
-                                            }
-                                    })
-                            }
+                        VStack(spacing: geometry.size.height * 0.02) {
+                            puzzleRow([img1, img2, img3], indices: [0, 1, 2], geometry: geometry)
+                            puzzleRow([img4, img5, img6], indices: [3, 4, 5], geometry: geometry)
+                            puzzleRow([img7, img8, img9], indices: [6, 7, 8], geometry: geometry)
+                            puzzleRow([img10, img11, img12], indices: [9, 10, 11], geometry: geometry)
                         }
-                        .padding(.top, 0)
-                    }.padding(0)
+                    }
+                    .padding(.top, geometry.size.height * 0.02)
                     
                     Text("Next:")
-                        .font(.title.bold())
+                        .font(.system(size: geometry.size.width * 0.07, weight: .bold))
                         .foregroundColor(.white)
-                        .padding(.top, 0)
+                        .padding(.top, geometry.size.height * 0.02)
                     
                     if currentPartIndex < puzzleParts.count {
-                        GeometryReader { geometry in
+                        GeometryReader { geo in
                             Image(puzzleParts[currentPartIndex])
                                 .resizable()
-                                .frame(width: 100, height: 100)
+                                .frame(width: geometry.size.width * 0.3, height: geometry.size.width * 0.3)
                                 .offset(currentOffset)
                                 .border(Color.orange, width: 2)
                                 .background(
@@ -392,31 +202,12 @@ struct PuzzleGameLevel5View: View {
                                                 image10Position, image11Position, image12Position
                                             ]
                                             
-                                            print("Проверка пересечений с текущим индексом: \(currentPartIndex)")
-                                            
                                             for (index, position) in imagePositions.enumerated() {
-                                                print("Проверка пересечения: текущий индекс \(currentPartIndex), проверяемый индекс \(index)")
-                                                
                                                 let targetFrame = CGRect(origin: position, size: CGSize(width: 80, height: 80))
                                                 
                                                 if checkIntersectionWithTolerance(self.currentFrame, targetFrame, tolerance: tolerance) {
-                                                    print("Пересечение найдено для индекса: \(index)")
                                                     if currentPartIndex == index {
-                                                        switch index {
-                                                        case 0: img1.toggle()
-                                                        case 1: img2.toggle()
-                                                        case 2: img3.toggle()
-                                                        case 3: img4.toggle()
-                                                        case 4: img5.toggle()
-                                                        case 5: img6.toggle()
-                                                        case 6: img7.toggle()
-                                                        case 7: img8.toggle()
-                                                        case 8: img9.toggle()
-                                                        case 9: img10.toggle()
-                                                        case 10: img11.toggle()
-                                                        case 11: img12.toggle()
-                                                        default: break
-                                                        }
+                                                        toggleImage(at: index)
                                                         count += 1
                                                         currentPartIndex = (currentPartIndex + 1) % puzzleParts.count
                                                         
@@ -448,53 +239,127 @@ struct PuzzleGameLevel5View: View {
                                     }
                                 }
                         }
-                        .frame(width: 100, height: 100)
+                        .frame(width: geometry.size.width * 0.3, height: geometry.size.width * 0.3)
                         
                         Spacer()
                     }
-                    
+                }
+                
+                if count == 12 {
+                    winOverlay(geometry: geometry)
+                }
+                
+                if timeRemaining == 0 {
+                    gameOverOverlay(geometry: geometry)
                 }
             }
-            
-            if count == 12 {
-                VStack {
-                    ZStack {
-                        Image("win")
-                        Button {
-                            increaseAndSaveValue(by: 150)
-                            self.dismiss()
-                        } label: {
-                            Image("home")
-                        }
-                        .padding(.top, 190)
-                    }
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color("bacc").ignoresSafeArea())
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .onAppear {
+                startTimer()
             }
-            
-            if timeRemaining == 0 {
-                VStack {
-                    ZStack {
-                        Image("over")
-                        Button {
-                            self.dismiss()
-                        } label: {
-                            Image("home")
-                        }
-                        .padding(.top, 160)
-                    }
+        }
+    }
+    
+    @ViewBuilder
+    private func puzzleRow(_ images: [Bool], indices: [Int], geometry: GeometryProxy) -> some View {
+        HStack(spacing: geometry.size.width * 0.02) {
+            ForEach(0..<images.count, id: \.self) { index in
+                Image(!images[index] ? "blue_square" : puzzleParts[indices[index]])
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: geometry.size.width * 0.25)
+                    .background(GeometryReader { geometry in
+                        let index = indices[index]
+                        Color.clear
+                            .onAppear {
+                                self.frames[index] = geometry.frame(in: .named("global"))
+                                switch index {
+                                case 0: self.image1Position = self.frames[index].origin
+                                case 1: self.image2Position = self.frames[index].origin
+                                case 2: self.image3Position = self.frames[index].origin
+                                case 3: self.image4Position = self.frames[index].origin
+                                case 4: self.image5Position = self.frames[index].origin
+                                case 5: self.image6Position = self.frames[index].origin
+                                case 6: self.image7Position = self.frames[index].origin
+                                case 7: self.image8Position = self.frames[index].origin
+                                case 8: self.image9Position = self.frames[index].origin
+                                case 9: self.image10Position = self.frames[index].origin
+                                case 10: self.image11Position = self.frames[index].origin
+                                case 11: self.image12Position = self.frames[index].origin
+                                default: break
+                                }
+                            }
+                            .onChange(of: geometry.frame(in: .named("global"))) { newValue, _ in
+                                self.frames[index] = newValue
+                            }
+                    })
+            }
+        }
+    }
+    
+    private func toggleImage(at index: Int) {
+        switch index {
+        case 0: img1.toggle()
+        case 1: img2.toggle()
+        case 2: img3.toggle()
+        case 3: img4.toggle()
+        case 4: img5.toggle()
+        case 5: img6.toggle()
+        case 6: img7.toggle()
+        case 7: img8.toggle()
+        case 8: img9.toggle()
+        case 9: img10.toggle()
+        case 10: img11.toggle()
+        case 11: img12.toggle()
+        default: break
+        }
+    }
+    
+    private func winOverlay(geometry: GeometryProxy) -> some View {
+        VStack {
+            ZStack {
+                Image("win")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: geometry.size.width * 0.8)
+                Button {
+                    increaseAndSaveValue(by: 150)
+                    self.dismiss()
+                } label: {
+                    Image("home")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: geometry.size.width * 0.2)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color("bacc").ignoresSafeArea())
+                .padding(.top, geometry.size.height * 0.25)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .onAppear {
-            startTimer()
-        }
+        .background(Color("bacc").ignoresSafeArea())
     }
-
+    
+    private func gameOverOverlay(geometry: GeometryProxy) -> some View {
+        VStack {
+            ZStack {
+                Image("over")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: geometry.size.width * 0.8)
+                Button {
+                    self.dismiss()
+                } label: {
+                    Image("home")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: geometry.size.width * 0.2)
+                }
+                .padding(.top, geometry.size.height * 0.25)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color("bacc").ignoresSafeArea())
+    }
+    
     func updateAllFrames() {
         for (index, position) in [
             image1Position, image2Position, image3Position,

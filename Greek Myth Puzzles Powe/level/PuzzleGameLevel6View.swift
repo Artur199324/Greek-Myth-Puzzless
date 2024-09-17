@@ -69,119 +69,103 @@ struct PuzzleGameLevel6View: View {
     }()
 
     var body: some View {
-        ZStack {
-            Group {
-                if savedBak == 1 {
-                    Image("background 1")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 2 {
-                    Image("background 2")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 3 {
-                    Image("background 3")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 4 {
-                    Image("background 4")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else {
-                    Color.black
-                        .ignoresSafeArea()
+        GeometryReader { geometry in
+            ZStack {
+                Group {
+                    if savedBak == 1 {
+                        Image("background 1")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 2 {
+                        Image("background 2")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 3 {
+                        Image("background 3")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 4 {
+                        Image("background 4")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else {
+                        Color.black
+                            .ignoresSafeArea()
+                    }
                 }
-            }
-            .onAppear {
-                updateAllFrames()
-            }
-            
-            GeometryReader { globalGeometry in
+                .onAppear {
+                    updateAllFrames()
+                }
+                
                 VStack {
                     HStack {
                         Button {
                             self.dismiss()
                         } label: {
                             Image("Group 3")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width * 0.08)
                         }
-                        .padding(.leading, 20)
+                        .padding(.leading, geometry.size.width * 0.05)
                         
                         Text("Level #6")
                             .foregroundColor(.white)
-                            .font(.title.bold())
+                            .font(.system(size: geometry.size.width * 0.07, weight: .bold))
                         
                         Spacer()
                         
                         ZStack {
                             Image("balance")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width * 0.15)
                             Text("\(savedValue)")
                                 .foregroundColor(.white)
-                                .padding(.leading, 15)
+                                .padding(.leading, geometry.size.width * 0.02)
                         }
-                        .padding(.trailing, 30)
+                        .padding(.trailing, geometry.size.width * 0.05)
                     }
-                    .padding(.top, 50)
+                    .padding(.top, geometry.size.height * 0.05)
                     
                     HStack {
                         Image("tabler-icon-clock-2")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: geometry.size.width * 0.08)
                         Text("\(timeRemaining)")
                             .foregroundColor(.white)
-                            .font(.title.bold())
+                            .font(.system(size: geometry.size.width * 0.07, weight: .bold))
                     }
-                    .padding(.top, 20)
+                    .padding(.top, geometry.size.height * 0.02)
                     
                     ZStack {
                         Color.clear
                             .coordinateSpace(name: "global")
                         
-                        VStack {
-                            // Первая строка изображений (4 элемента)
-                            HStack {
-                                ForEach(0..<4, id: \.self) { index in
-                                    imageView(for: index, width: 80)
-                                }
-                            }
-                            
-                            // Вторая строка изображений (4 элемента)
-                            HStack {
-                                ForEach(4..<8, id: \.self) { index in
-                                    imageView(for: index, width: 80)
-                                }
-                            }
-                            
-                            // Третья строка изображений (последний элемент шириной 180)
-                            HStack {
-                                ForEach(8..<10, id: \.self) { index in
-                                    imageView(for: index, width: 80)
-                                }
-                                imageView(for: 10, width: 170)
-                            }
-                            
-                            // Четвертая строка изображений (последний элемент шириной 180)
-                            HStack {
-                                ForEach(11..<13, id: \.self) { index in
-                                    imageView(for: index, width: 80)
-                                }
-                                imageView(for: 13, width: 170)
-                            }
+                        VStack(spacing: geometry.size.height * 0.02) {
+                            puzzleRow(0..<4, geometry: geometry, width: geometry.size.width * 0.2)
+                            puzzleRow(4..<8, geometry: geometry, width: geometry.size.width * 0.2)
+                            puzzleRow(8..<11, geometry: geometry, width: geometry.size.width * 0.2)
+                            puzzleRow(11..<14, geometry: geometry, width: geometry.size.width * 0.2)
                         }
-                        .padding(.top, 10)
                     }
+                    .padding(.top, geometry.size.height * 0.02)
                     
                     Text("Next:")
-                        .font(.title.bold())
+                        .font(.system(size: geometry.size.width * 0.07, weight: .bold))
                         .foregroundColor(.white)
-                        .padding(.top, 20)
+                        .padding(.top, geometry.size.height * 0.02)
                     
                     if currentPartIndex < puzzleParts.count {
-                        GeometryReader { geometry in
+                        GeometryReader { geo in
                             Image(puzzleParts[currentPartIndex])
                                 .resizable()
-                                .frame(width: 100, height: 100)
+                                .frame(width: geometry.size.width * 0.3, height: geometry.size.width * 0.3)
                                 .offset(currentOffset)
                                 .border(Color.orange, width: 2)
                                 .background(
@@ -222,15 +206,10 @@ struct PuzzleGameLevel6View: View {
                                                 image13Position, image14Position
                                             ]
                                             
-                                            print("Проверка пересечений с текущим индексом: \(currentPartIndex)")
-                                            
                                             for (index, position) in imagePositions.enumerated() {
-                                                print("Проверка пересечения: текущий индекс \(currentPartIndex), проверяемый индекс \(index)")
-                                                
                                                 let targetFrame = CGRect(origin: position, size: CGSize(width: 80, height: 80))
                                                 
                                                 if checkIntersectionWithTolerance(self.currentFrame, targetFrame, tolerance: tolerance) {
-                                                    print("Пересечение найдено для индекса: \(index)")
                                                     if currentPartIndex == index {
                                                         toggleImage(at: index)
                                                         count += 1
@@ -264,57 +243,86 @@ struct PuzzleGameLevel6View: View {
                                     }
                                 }
                         }
-                        .frame(width: 100, height: 100)
+                        .frame(width: geometry.size.width * 0.3, height: geometry.size.width * 0.3)
                         
                         Spacer()
                     }
-                    
+                }
+                
+                if count == 14 {
+                    winOverlay(geometry: geometry)
+                }
+                
+                if timeRemaining == 0 {
+                    gameOverOverlay(geometry: geometry)
                 }
             }
-            
-            if count == 14 {
-                VStack {
-                    ZStack {
-                        Image("win")
-                        Button {
-                            increaseAndSaveValue(by: 150)
-                            self.dismiss()
-                        } label: {
-                            Image("home")
-                        }
-                        .padding(.top, 190)
-                    }
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color("bacc").ignoresSafeArea())
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .onAppear {
+                startTimer()
             }
-            
-            if timeRemaining == 0 {
-                VStack {
-                    ZStack {
-                        Image("over")
-                        Button {
-                            self.dismiss()
-                        } label: {
-                            Image("home")
-                        }
-                        .padding(.top, 160)
-                    }
+        }
+    }
+    
+    @ViewBuilder
+    private func puzzleRow(_ range: Range<Int>, geometry: GeometryProxy, width: CGFloat) -> some View {
+        HStack(spacing: geometry.size.width * 0.02) {
+            ForEach(range, id: \.self) { index in
+                imageView(for: index, width: width)
+            }
+        }
+    }
+    
+    private func winOverlay(geometry: GeometryProxy) -> some View {
+        VStack {
+            ZStack {
+                Image("win")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: geometry.size.width * 0.8)
+                Button {
+                    increaseAndSaveValue(by: 150)
+                    self.dismiss()
+                } label: {
+                    Image("home")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: geometry.size.width * 0.2)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color("bacc").ignoresSafeArea())
+                .padding(.top, geometry.size.height * 0.25)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .onAppear {
-            startTimer()
+        .background(Color("bacc").ignoresSafeArea())
+    }
+    
+    private func gameOverOverlay(geometry: GeometryProxy) -> some View {
+        VStack {
+            ZStack {
+                Image("over")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: geometry.size.width * 0.8)
+                Button {
+                    self.dismiss()
+                } label: {
+                    Image("home")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: geometry.size.width * 0.2)
+                }
+                .padding(.top, geometry.size.height * 0.25)
+            }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color("bacc").ignoresSafeArea())
     }
     
     func imageView(for index: Int, width: CGFloat) -> some View {
         Image(!isImageToggled(index) ? "blue_square" : puzzleParts[index])
             .resizable()
-            .frame(width: width, height: 80)
+            .aspectRatio(contentMode: .fit)
+            .frame(width: width, height: width)
             .background(GeometryReader { geometry in
                 Color.clear
                     .onAppear {

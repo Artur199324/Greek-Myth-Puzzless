@@ -32,6 +32,8 @@ struct ContentView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(
                 Image("splash")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
             )
             .fullScreenCover(isPresented: $isStartGame) {
@@ -68,7 +70,6 @@ struct ContentView: View {
                         onPageFinished: { url in
                             print("Page finished loading: \(url?.absoluteString ?? "Unknown URL")")
 
-                        
                             if let urlString = url?.absoluteString, urlString.contains("celestialcirdscuit") {
                                 showButtons = true
                                 isWebViewHidden = true
@@ -173,43 +174,57 @@ struct ContentView: View {
 
     // Содержимое с кнопками
     private var buttonContent: some View {
-        VStack {
-            HStack {
-                ZStack {
-                    Image("balance")
-                    Text("\(savedValue)")
-                        .foregroundColor(.white)
-                        .padding(.leading, 15)
-                }
-                .padding(.leading, 30)
+        GeometryReader { geometry in
+            VStack {
+                HStack {
+                    ZStack {
+                        Image("balance")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: geometry.size.width * 0.2)
+                        Text("\(savedValue)")
+                            .foregroundColor(.white)
+                            .padding(.leading, geometry.size.width * 0.03)
+                    }
+                    .padding(.leading, geometry.size.width * 0.05)
 
+                    Spacer()
+
+                    Button {
+                        showShop.toggle()
+                    } label: {
+                        Image("shop")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: geometry.size.width * 0.1)
+                    }
+                    .padding(.trailing, geometry.size.width * 0.05)
+                }
                 Spacer()
+                HStack {
+                    Spacer()
+                    Button {
+                        checkButtonTap()
+                    } label: {
+                        Image("Group 9")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: geometry.size.width * 0.15)
+                    }
+                    .padding(.trailing, geometry.size.width * 0.05)
+                    .padding(.bottom, geometry.size.height * 0.05)
+                }
 
                 Button {
-                    showShop.toggle()
+                    isStartGame.toggle()
                 } label: {
-                    Image("shop")
+                    Image("Group 1")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: geometry.size.width * 0.5)
                 }
-                .padding(.trailing, 40)
+                .padding(.bottom, geometry.size.height * 0.05)
             }
-            Spacer()
-            HStack {
-                Spacer()
-                Button {
-                    checkButtonTap()
-                } label: {
-                    Image("Group 9")
-                }
-                .padding(.trailing, 30)
-                .padding(.bottom, 50)
-            }
-
-            Button {
-                isStartGame.toggle()
-            } label: {
-                Image("Group 1")
-            }
-            .padding(.bottom, 40)
         }
     }
 

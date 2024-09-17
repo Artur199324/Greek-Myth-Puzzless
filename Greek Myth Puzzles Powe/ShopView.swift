@@ -1,10 +1,3 @@
-//
-//  ShopView.swift
-//  Olympus Glory Divine Powe
-//
-//  Created by Artur on 04.09.2024.
-//
-
 import SwiftUI
 
 struct ShopView: View {
@@ -24,133 +17,118 @@ struct ShopView: View {
         
         let key = "myIntKey"
         if UserDefaults.standard.object(forKey: key) == nil {
-            UserDefaults.standard.set(initialValue, forKey: key)
+            UserDefaults.standard.set(500, forKey: key) // Установите начальное значение, если его нет
         }
         return UserDefaults.standard.integer(forKey: key)
     }()
+    
     var body: some View {
-        ZStack {
-            Group {
-                if savedBak == 1 {
-                    Image("background 1")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 2 {
-                    Image("background 2")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 3 {
-                    Image("background 3")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 4 {
-                    Image("background 4")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else {
-                    Color.black
-                        .ignoresSafeArea()
+        GeometryReader { geometry in
+            ZStack {
+                Group {
+                    if savedBak == 1 {
+                        Image("background 1")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 2 {
+                        Image("background 2")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 3 {
+                        Image("background 3")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 4 {
+                        Image("background 4")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else {
+                        Color.black
+                            .ignoresSafeArea()
+                    }
                 }
-            }
-            
-            VStack{
-                HStack{
-                    Button {
-                        self.dismiss()
-                    } label: {
-                        Image("Group 3")
-                    }.padding(.leading,20)
-                    Text("Shop")
-                        .foregroundColor(.white)
-                        .font(.title.bold())
-                    Spacer()
-                    ZStack{
-                        Image("balance")
-                        Text("\(savedValue)")
+                
+                VStack {
+                    HStack {
+                        Button {
+                            self.dismiss()
+                        } label: {
+                            Image("Group 3")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width * 0.08)
+                        }
+                        .padding(.leading, geometry.size.width * 0.05)
+                        
+                        Text("Shop")
                             .foregroundColor(.white)
-                            .padding(.leading,15)
-                    }.padding(.trailing,30)
-                }.padding(.top,50)
-                
-                
-            
-                
-                ZStack{
-                    Image("baga1")
-                    Button {
-                        if !booleanManager.retrieve(for: 0) {
-                            if savedValue > 200 {
-                                booleanManager.save(true, for: 0)
-                                increaseAndSaveValue(by: -200) // Уменьшаем savedValue на 200
-                            } else {
-                                print("Недостаточно средств")
-                            }
-                        } else {
-                            saveBakValue(1)
-                            self.dismiss()
-                           
+                            .font(.system(size: geometry.size.width * 0.07, weight: .bold))
+                        
+                        Spacer()
+                        
+                        ZStack {
+                            Image("balance")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width * 0.15)
+                            Text("\(savedValue)")
+                                .foregroundColor(.white)
+                                .padding(.leading, geometry.size.width * 0.02)
                         }
-                    } label: {
-                        // Меняем изображение в зависимости от состояния булевой переменной
-                        Image(booleanManager.retrieve(for: 0) ? "apply" : "balance1")
+                        .padding(.trailing, geometry.size.width * 0.05)
                     }
-                    .padding(.trailing, 200)
-                    .padding(.top, 60)
+                    .padding(.top, geometry.size.height * 0.05)
+                    
+                 
+                    
+                    // Первый товар
+                    shopItem(imageName: "baga1", balanceName: "balance1", index: 0, cost: 200, width: geometry.size.width, height: geometry.size.height)
+                    
+                    // Второй товар
+                    shopItem(imageName: "baga2", balanceName: "balance2", index: 1, cost: 300, width: geometry.size.width, height: geometry.size.height)
+                    
+                    // Третий товар
+                    shopItem(imageName: "baga3", balanceName: "balance3", index: 2, cost: 400, width: geometry.size.width, height: geometry.size.height)
+                    
+                    Spacer()
                 }
-                
-                ZStack{
-                    Image("baga2")
-                    Button {
-                        if !booleanManager.retrieve(for: 1) {
-                            if savedValue > 300 {
-                                booleanManager.save(true, for: 1)
-                                increaseAndSaveValue(by: -300) // Уменьшаем savedValue на 200
-                            } else {
-                                print("Недостаточно средств")
-                            }
-                        } else {
-                            saveBakValue(2)
-                            self.dismiss()
-                            
-                        }
-                    } label: {
-                        Image(booleanManager.retrieve(for: 1) ? "apply" : "balance2")
-                    }.padding(.trailing, 200)
-                        .padding(.top, 60)
-                }
-                
-                ZStack{
-                    Image("baga3")
-                    Button {
-                        if !booleanManager.retrieve(for: 2) {
-                            if savedValue > 400 {
-                                booleanManager.save(true, for: 2)
-                                increaseAndSaveValue(by: -400) // Уменьшаем savedValue на 200
-                            } else {
-                                print("Недостаточно средств")
-                            }
-                        } else {
-                            saveBakValue(3)
-                            self.dismiss()
-                          
-                        }
-                       
-                    } label: {
-                        Image(booleanManager.retrieve(for: 2) ? "apply" : "balance3")
-                    }
-                    .padding(.trailing, 200)
-                    .padding(.top, 60)
-                }
-                
-                
-                Spacer()
             }
-        }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,maxHeight: .infinity)
-        
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+    }
+    
+    func shopItem(imageName: String, balanceName: String, index: Int, cost: Int, width: CGFloat, height: CGFloat) -> some View {
+        ZStack {
+            Image(imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: width * 0.8)
+            
+            Button {
+                if !booleanManager.retrieve(for: index) {
+                    if savedValue >= cost {
+                        booleanManager.save(true, for: index)
+                        increaseAndSaveValue(by: -cost) // Уменьшаем savedValue на стоимость
+                    } else {
+                        print("Недостаточно средств")
+                    }
+                } else {
+                    saveBakValue(index + 1)
+                    self.dismiss()
+                }
+            } label: {
+                Image(booleanManager.retrieve(for: index) ? "apply" : balanceName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: width * 0.15)
+            }
+            .padding(.trailing, width * 0.3)
+            .padding(.top, height * 0.03) // Уменьшено значение отступа сверху
+        }
     }
     
     func increaseAndSaveValue(by amount: Int) {
@@ -159,10 +137,10 @@ struct ShopView: View {
     }
     
     func saveBakValue(_ value: Int) {
-           let key = "bac"
-           UserDefaults.standard.set(value, forKey: key) // Сохраняем значение
-           savedBak = value // Обновляем переменную состояния
-       }
+        let key = "bac"
+        UserDefaults.standard.set(value, forKey: key)
+        savedBak = value
+    }
 }
 
 #Preview {

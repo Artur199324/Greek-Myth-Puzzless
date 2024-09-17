@@ -1,10 +1,3 @@
-//
-//  QuizView.swift
-//  Olympus Glory Divine Powe
-//
-//  Created by Artur on 04.09.2024.
-//
-
 import SwiftUI
 
 struct QuizView: View {
@@ -49,121 +42,134 @@ struct QuizView: View {
     }()
     
     var body: some View {
-        ZStack {
-            Group {
-                if savedBak == 1 {
-                    Image("background 1")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 2 {
-                    Image("background 2")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 3 {
-                    Image("background 3")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else if savedBak == 4 {
-                    Image("background 4")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                } else {
-                    Color.black
-                        .ignoresSafeArea()
-                }
-            }
-            
-            VStack {
-                HStack {
-                    Button {
-                        self.dismiss()
-                    } label: {
-                        Image("Group 3")
+        GeometryReader { geometry in
+            ZStack {
+                // Фоновое изображение
+                Group {
+                    if savedBak == 1 {
+                        Image("background 1")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 2 {
+                        Image("background 2")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 3 {
+                        Image("background 3")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else if savedBak == 4 {
+                        Image("background 4")
+                            .resizable()
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    } else {
+                        Color.black
+                            .ignoresSafeArea()
                     }
-                    .padding(.leading, 20)
+                }
+                
+                VStack {
+                    // Верхний бар с кнопкой назад, названием и балансом
+                    HStack {
+                        Button {
+                            self.dismiss()
+                        } label: {
+                            Image("Group 3")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width * 0.08)
+                        }
+                        .padding(.leading, geometry.size.width * 0.05)
+                        
+                        Text("Quiz")
+                            .foregroundColor(.white)
+                            .font(.system(size: geometry.size.width * 0.07, weight: .bold))
+                        
+                        Spacer()
+                        
+                        ZStack {
+                            Image("balance")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width * 0.15)
+                            Text("\(savedValue)")
+                                .foregroundColor(.white)
+                                .padding(.leading, geometry.size.width * 0.02)
+                        }
+                        .padding(.trailing, geometry.size.width * 0.05)
+                    }
+                    .padding(.top, geometry.size.height * 0.05)
                     
-                    Text("Quiz")
+                    // Таймер
+                    HStack {
+                        Image("tabler-icon-clock-2")
+                        Text("\(timeRemaining)")
+                            .foregroundColor(.white)
+                            .font(.system(size: geometry.size.width * 0.06, weight: .bold))
+                    }
+                    .padding(.top, geometry.size.height * 0.02)
+                    
+                    // Вопрос
+                    Text("\(Questions.questions[numberQuestions])")
                         .foregroundColor(.white)
-                        .font(.title.bold())
+                        .font(.custom("Lalezar", size: geometry.size.width * 0.07))
+                        .multilineTextAlignment(.center)
+                        .padding(30)
+                        .background(Color("bacQwi"))
+                        .cornerRadius(20)
+                        .padding(.top, geometry.size.height * 0.05)
+                        .padding(.horizontal)
+                    
+                    // Кнопки с ответами
+                    HStack {
+                        buttonWithDelay(index: 0, one: $one, two: $two, three: $thre, width: geometry.size.width, height: geometry.size.height)
+                        buttonWithDelay(index: 1, one: $one2, two: $two2, three: $thre2, width: geometry.size.width, height: geometry.size.height)
+                    }
+                    
+                    HStack {
+                        buttonWithDelay(index: 2, one: $one3, two: $two3, three: $thre3, width: geometry.size.width, height: geometry.size.height)
+                        buttonWithDelay(index: 3, one: $one4, two: $two4, three: $thre4, width: geometry.size.width, height: geometry.size.height)
+                    }
                     
                     Spacer()
-                    
-                    ZStack {
-                        Image("balance")
-                        Text("\(savedValue)")
-                            .foregroundColor(.white)
-                            .padding(.leading, 15)
+                }
+                
+                // Full-screen overlays
+                if numberQuestions == Questions.wrong.count - 1 {
+                    if wrong >= 7 {
+                        resultOverlay(imageName: "win", action: {
+                            increaseAndSaveValue(by: 150)
+                            stopTimer()
+                            self.dismiss()
+                        }, width: geometry.size.width, height: geometry.size.height)
+                    } else {
+                        resultOverlay(imageName: "over", action: {
+                            stopTimer()
+                            self.dismiss()
+                        }, width: geometry.size.width, height: geometry.size.height)
                     }
-                    .padding(.trailing, 30)
-                }
-                .padding(.top, 50)
-                
-                HStack {
-                    Image("tabler-icon-clock-2")
-                    Text("\(timeRemaining)")
-                        .foregroundColor(.white)
-                        .font(.title.bold())
-                }
-                .padding(.top, 20)
-                
-                Text("\(Questions.questions[numberQuestions])")
-                    .foregroundColor(.white)
-                    .font(.custom("Lalezar", size: 30))
-                    .multilineTextAlignment(.center)
-                    .padding(30)
-                    .background(Color("bacQwi"))
-                    .cornerRadius(20)
-                    .padding(.top, 40)
-                    .padding(.horizontal)
-                
-                HStack {
-                    buttonWithDelay(index: 0, one: $one, two: $two, three: $thre)
-                    buttonWithDelay(index: 1, one: $one2, two: $two2, three: $thre2)
                 }
                 
-                HStack {
-                    buttonWithDelay(index: 2, one: $one3, two: $two3, three: $thre3)
-                    buttonWithDelay(index: 3, one: $one4, two: $two4, three: $thre4)
-                }
-                
-                Spacer()
-            }
-            
-            // Full-screen overlays
-            if numberQuestions == Questions.wrong.count - 1 {
-                if wrong >= 7 {
-                    resultOverlay(imageName: "win", action: {
-                        increaseAndSaveValue(by: 150)
-                        stopTimer()
-                        self.dismiss()
-                    })
-                } else {
+                if timeRemaining == 0 {
                     resultOverlay(imageName: "over", action: {
                         stopTimer()
                         self.dismiss()
-                    })
+                    }, width: geometry.size.width, height: geometry.size.height)
                 }
             }
-            
-            if timeRemaining == 0 {
-                resultOverlay(imageName: "over", action: {
-                    stopTimer()
-                    self.dismiss()
-                })
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .onAppear {
+                startTimer()
             }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .onAppear {
-            startTimer()
         }
     }
     
     // Создание кнопки с задержкой и переключением флагов
-    func buttonWithDelay(index: Int, one: Binding<Bool>, two: Binding<Bool>, three: Binding<Bool>) -> some View {
+    func buttonWithDelay(index: Int, one: Binding<Bool>, two: Binding<Bool>, three: Binding<Bool>, width: CGFloat, height: CGFloat) -> some View {
         Button(action: {
             one.wrappedValue.toggle()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -189,26 +195,32 @@ struct QuizView: View {
         }, label: {
             Text("\(Questions.wordAnswer[numberQuestions][index])")
                 .foregroundColor(.white)
-                .font(.custom("Lalezar", size: 20))
+                .font(.custom("Lalezar", size: width * 0.05))
                 .multilineTextAlignment(.center)
                 .padding(30)
         })
-        .frame(width: 180, height: 100)
+        .frame(width: width * 0.4, height: height * 0.1) // Размеры кнопок
         .background(getBackgroundColor(index: index, one: one, two: two, three: three))
         .cornerRadius(20)
     }
     
     // Overlay для результата на весь экран
-    func resultOverlay(imageName: String, action: @escaping () -> Void) -> some View {
+    func resultOverlay(imageName: String, action: @escaping () -> Void, width: CGFloat, height: CGFloat) -> some View {
         VStack {
             ZStack {
                 Image(imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: width * 0.8)
                 Button {
                     action()
                 } label: {
                     Image("home")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: width * 0.2)
                 }
-                .padding(.top, 190)
+                .padding(.top, height * 0.2)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
