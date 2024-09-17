@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		13313D6C69CF0511D8F51296 /* Pods_Greek_Myth_Puzzles_PoweUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA90CCF8450675593C735E56 /* Pods_Greek_Myth_Puzzles_PoweUITests.framework */; };
 		5DD3C245E1BECE3EBA08E716 /* Pods_Greek_Myth_Puzzles_Powe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2708D7BA8A11150CE6C6F4FB /* Pods_Greek_Myth_Puzzles_Powe.framework */; };
-		7516563A2C9437BF00E0EF4C /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 751656392C9437BF00E0EF4C /* FirebaseRemoteConfig */; };
 		7516563C2C94383300E0EF4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7516563B2C94383300E0EF4C /* GoogleService-Info.plist */; };
 		7516563F2C94487000E0EF4C /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7516563E2C94487000E0EF4C /* FacebookCore */; };
 		751656412C944C9E00E0EF4C /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 751656402C944C9E00E0EF4C /* FacebookShare */; };
@@ -129,7 +128,6 @@
 				7516563F2C94487000E0EF4C /* FacebookCore in Frameworks */,
 				759F73CC2C9883A600F669CE /* AppsFlyerLib in Frameworks */,
 				751656412C944C9E00E0EF4C /* FacebookShare in Frameworks */,
-				7516563A2C9437BF00E0EF4C /* FirebaseRemoteConfig in Frameworks */,
 				5DD3C245E1BECE3EBA08E716 /* Pods_Greek_Myth_Puzzles_Powe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,7 +299,6 @@
 			);
 			name = "Greek Myth Puzzles Powe";
 			packageProductDependencies = (
-				751656392C9437BF00E0EF4C /* FirebaseRemoteConfig */,
 				7516563E2C94487000E0EF4C /* FacebookCore */,
 				751656402C944C9E00E0EF4C /* FacebookShare */,
 				759F73CB2C9883A600F669CE /* AppsFlyerLib */,
@@ -381,7 +378,6 @@
 			);
 			mainGroup = 75B5869E2C86324D00F23B08;
 			packageReferences = (
-				751656382C9437BF00E0EF4C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				7516563D2C94487000E0EF4C /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				759F73CA2C9883A600F669CE /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */,
 			);
@@ -682,7 +678,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Greek Myth Puzzles Powe/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -698,7 +694,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0;
+				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.greekmythpuzzles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -719,7 +715,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Greek Myth Puzzles Powe/Greek Myth Puzzles PoweRelease.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Greek Myth Puzzles Powe/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -735,7 +731,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0;
+				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.greekmythpuzzles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -870,14 +866,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		751656382C9437BF00E0EF4C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.2.0;
-			};
-		};
 		7516563D2C94487000E0EF4C /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
@@ -897,11 +885,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		751656392C9437BF00E0EF4C /* FirebaseRemoteConfig */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 751656382C9437BF00E0EF4C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseRemoteConfig;
-		};
 		7516563E2C94487000E0EF4C /* FacebookCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7516563D2C94487000E0EF4C /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;

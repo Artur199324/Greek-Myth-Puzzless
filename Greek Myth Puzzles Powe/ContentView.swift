@@ -110,7 +110,7 @@ struct ContentView: View {
             handleNewUser()
         }
         .onReceive(dataModel.$add) { newValue in
-            print("dataModel.add изменился: \(newValue)")
+    
             // Добавляем проверку на dataModel.newUser
             if dataModel.newUser == true {
                 if !newValue.isEmpty {
